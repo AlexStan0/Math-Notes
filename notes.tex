@@ -1,0 +1,117 @@
+\documentclass[12pt]{article}
+
+% Import dependencies
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{float}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{fourier}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage[T1]{fontenc}
+\usepackage{icomma}
+\usepackage{siunitx}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{comment}
+
+% Create a new command for horizontal lines without indentation
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\onehalfspacing
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+% Set the page numbers to be arabic (i.e normal numbers)
+\pagenumbering{arabic}
+
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead[L]{Alexandru Stan}
+\fancyfoot[L]{\thepage}
+\fancyfoot[R]{\thepage\space\text{of}\space\pageref{LastPage}}
+
+\begin{document}
+
+    % Generate the title with the class code & name
+    \title{ \normalsize \textsc{MCV4U}
+            \\ [2.0cm]
+            \HRule{0.5pt} \\
+            \LARGE \textbf{\uppercase{Calculus \& Vectors}}
+            \HRule{2pt} \\ [0.5cm]
+            \normalsize \today \vspace*{5\baselineskip}}
+
+    \date{}
+
+    \author{Alexandru Stan}
+    \maketitle
+
+    % Count the page nunbers, and create a new page
+    \newpage
+
+    % Set the right header and page number
+    \fancyhead[R]{Table of Contents}
+    
+    % Create the section and sub-sections for the table of contents
+   \tableofcontents
+    
+    %Sections and subsections for the ToC
+    \section{Vectors}
+        \subsection{Vector Addition and Substraction}
+        \subsection{Scalar Multiplication}
+        \subsection{Properties of Vectors}
+        \subsection{Vectors as Forces}
+        \subsection{Vectors as Velocity}
+        \subsection{Vectors in R2}
+        \subsection{Algebraic Vectors in R3}
+        \subsection{Dot Product and Cross Product}
+        \subsection{Application of Dot and Cross Product}
+        \subsection{Scalar and Vector Projections}
+
+    \section{Lines and Planes}
+        \subsection{Vector, Parametric, and Symmetric Equations of a Line}
+        \subsection{Vector and Parametric Equations of a Plane}
+        \subsection{Cartesian (Scalar) Equation of a Plane}
+        \subsection{Intersection of a Lines and Planes}
+        \subsection{Intersection of Two Planes}
+        \subsection{Intersection of Three Planes}
+
+    \section{Limits and Continuity}
+        \subsection{Introduction to Limits}
+        \subsection{Special Limits with Trigonometric Functions}
+        \subsection{Asymptotes and Holes}
+        \subsection{Continuity}
+
+    \section{Derivatives}
+        \subsection{Slope of a Curved Line}
+        \subsection{The Derivative Function}
+        \subsection{Differentiability}
+        \subsection{Increasing/Decreasing Functions}
+        \subsection{The Chain, Product, and Quotient Rules}
+        \subsection{Higher Order Derivatives}
+
+    \section{Curve Sketching}
+        \subsection{Points of Inflection}
+        \subsection{Curve Sketching Process Given a Function}
+    
+    \section{Applications of Derivatives}
+        \subsection{Velocity and Acceleration}
+        \subsection{Optimization With an Equation Given}
+        \subsection{Optimization With no Equation Given}
+
+    \section{Exponential and Trigonometric Functions}
+        \subsection{Exponential Functions and the Number e}
+
+\end{document}
