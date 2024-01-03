@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12.5pt]{article}
 
 % Import dependencies
 \usepackage[a4paper]{geometry}
@@ -23,13 +23,7 @@
 \usepackage{amsmath}
 \usepackage{comment}
 \usepackage{tikz}
-<<<<<<< HEAD
-\usepackage[bottom]{footmisc}
 \usepackage{hyperref}
-\usepackage[framemethod=TikZ]{mdframed}
-=======
-\usepackage{subcaption}
->>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -37,7 +31,6 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 
-<<<<<<< HEAD
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -46,8 +39,6 @@
     urlcolor=black
 }
 
-=======
->>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 % Change font-family to a monospace font
 \renewcommand{\familydefault}{\rmdefault}
 
@@ -108,17 +99,12 @@
             for describing dynamic sytstems. 
 
             % List some scalar and vector quantities
-            \begin{mdframed}
-
-                Ex. Scalar Vs. Vector Quantities
-
-                \begin{itemize}
-                    \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
-                    Energy, Work, Power, etc.
-                    \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
-                    Force, Momentum, etc.
-                \end{itemize}
-            \end{mdframed}
+            \begin{itemize}
+                \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
+                Energy, Work, Power, etc.
+                \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
+                Force, Momentum, etc.
+            \end{itemize}
 
             % State the different ways vectors can be written and the different ways they can be represented visually
             When written in mathematical equations, vectors are usually represented via a a symbol with a vector indicator (i.e $\vec{v}$)
@@ -162,54 +148,32 @@
 
             % Create two figures to represent equal and opposite vectors
             \begin{figure}[h]
-                
                 \centering
                 \begin{subfigure}[b]{0.4\linewidth}
-                    
                     \centering
                     \begin{tikzpicture}
-                        
                         % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
                         \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
-
                     \end{tikzpicture}
                     \caption{Equivalent Vectors}
-
                 \end{subfigure}
-
+                %
                 \centering
                 \begin{subfigure}[b]{0.4\linewidth}
-                    
                     \centering
-                    \begin{tikzpicture}
-                        
+                    \begin{tikzpicture} 
                         % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
                         \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
-
-<<<<<<< HEAD
-            % Force the next section to a new page
-            newpage
-=======
                     \end{tikzpicture}
                     \caption{Equivalent Vectors}
-
                 \end{subfigure}
-
             \end{figure}
->>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 
         \end{flushleft}
-
+        \clearpage
         \subsection{Vector Addition and Substraction}
-
-            \begin{flushleft}
-
-
-
-            \end{flushleft}
-
         \subsection{Scalar Multiplication}
         \subsection{Properties of Vectors}
         \subsection{Vectors as Forces}
@@ -233,6 +197,9 @@
         \subsection{Special Limits with Trigonometric Functions}
         \subsection{Asymptotes and Holes}
         \subsection{Continuity}
+
+    % THE CLEAR PAGE WAS CAUSED BECEUASE OF THE SECTION OVERFLOW ON PAGE 6, WTF
+    \clearpage
 
     \section{Derivatives}
         \subsection{Slope of a Curved Line}
