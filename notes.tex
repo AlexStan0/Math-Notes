@@ -1,4 +1,4 @@
-\documentclass[13pt]{article}
+\documentclass[12pt]{article}
 
 % Import dependencies
 \usepackage[a4paper]{geometry}
@@ -23,6 +23,7 @@
 \usepackage{amsmath}
 \usepackage{comment}
 \usepackage{tikz}
+\usepackage{subcaption}
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -130,8 +131,45 @@
             \end{itemize}
 
             % Describe opposite and equal vectors then paint an image of them 
+            Vectors can be equal (or equivalent) to each other. For two vectors to be equal (or equivalent) 
+            they must have the same magnitude and direction. Vectors can also be opposite to each other; to be
+            opposing vectors must have the same magnitude but opposite directions 
+            (i.e $\vec{v} = -\vec{v}$).
 
-            \newpage
+            % Create two figures to represent equal and opposite vectors
+            \begin{figure}[h]
+                
+                \centering
+                \begin{subfigure}[b]{0.4\linewidth}
+                    
+                    \centering
+                    \begin{tikzpicture}
+                        
+                        % Draw & Label the Vector Arrow
+                        \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
+                        \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
+
+                    \end{tikzpicture}
+                    \caption{Equivalent Vectors}
+
+                \end{subfigure}
+
+                \centering
+                \begin{subfigure}[b]{0.4\linewidth}
+                    
+                    \centering
+                    \begin{tikzpicture}
+                        
+                        % Draw & Label the Vector Arrow
+                        \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
+                        \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
+
+                    \end{tikzpicture}
+                    \caption{Equivalent Vectors}
+
+                \end{subfigure}
+
+            \end{figure}
 
         \end{flushleft}
 
