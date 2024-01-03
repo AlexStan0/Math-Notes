@@ -24,6 +24,8 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage[bottom]{footmisc}
+\usepackage{hyperref}
+\usepackage[framemethod=TikZ]{mdframed}
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -31,11 +33,19 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 
-% Remove the line above footnotes
-\let\footnoterule\relax
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
 % Change font-family to a monospace font
 \renewcommand{\familydefault}{\rmdefault}
+
+% Remove the line above footnotes
+\let\footnoterule\relax
 
 % Set the page numbers to be arabic (i.e normal numbers)
 \pagenumbering{arabic}
@@ -87,16 +97,20 @@
             Vectors are mathematical entities that extend our understanding beyond the 
             one-dimensional quantities. Unlike scalar values that only have magnituide, 
             vectors incorporate both magnitude and direction, offering a versatile toolkit
-            for describing dynamic sytstems. Below are some examples of vectors and scalar
-            quantites.
+            for describing dynamic sytstems. 
 
             % List some scalar and vector quantities
-            \begin{itemize}
-                \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
-                Energy, Work, Power, Pressure, Volume, Density
-                \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
-                Force, Momentum, Weight
-            \end{itemize}
+            \begin{mdframed}
+
+                Ex. Scalar Vs. Vector Quantities
+
+                \begin{itemize}
+                    \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
+                    Energy, Work, Power, etc.
+                    \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
+                    Force, Momentum, etc.
+                \end{itemize}
+            \end{mdframed}
 
             % State the different ways vectors can be written and the different ways they can be represented visually
             When written in mathematical equations, vectors are usually represented via a a symbol with a vector indicator (i.e $\vec{v}$)
