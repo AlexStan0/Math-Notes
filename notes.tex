@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[13pt]{article}
 
 % Import dependencies
 \usepackage[a4paper]{geometry}
@@ -22,12 +22,16 @@
 \usepackage{ragged2e}
 \usepackage{amsmath}
 \usepackage{comment}
+\usepackage{tikz}
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
 \onehalfspacing
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
+
+% Change font-family to a monospace font
+\renewcommand{\familydefault}{\rmdefault}
 
 % Set the page numbers to be arabic (i.e normal numbers)
 \pagenumbering{arabic}
@@ -61,15 +65,84 @@
     % Count the page nunbers, and create a new page
     \newpage
 
-    % Set the right header and page number
+    % Set the right header to indicate what is occuring
     \fancyhead[R]{Table of Contents}
     
     % Create the section and sub-sections for the table of contents
-   \tableofcontents
+   \tableofcontents\newpage
     
     %Sections and subsections for the ToC
     \section{Vectors}
+
+
+        % Set the right header to indicate what is occuring
+        \fancyhead[R]{Vectors}
+
+        \begin{flushleft}
+
+             % Write a simple introduction into what vectors are before we move on
+            Vectors are mathematical entities that extend our understanding beyond the 
+            one-dimensional quantities. Unlike scalar values that only have magnituide, 
+            vectors incorporate both magnitude and direction, offering a versatile toolkit
+            for describing dynamic sytstems. Below are some examples of vectors and scalar
+            quantites.
+
+            % List some scalar and vector quantities
+            \begin{itemize}
+                \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
+                Energy, Work, Power, Pressure, Volume, Density
+                \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
+                Force, Momentum, Weight
+            \end{itemize}
+
+            % State the different ways vectors can be written and the different ways they can be represented visually
+            When written in mathematical equations, vectors are usually represented via a a symbol with a vector indicator (i.e $\vec{v}$)
+            or via a jointery of the two points (i.e $\vec{AB}$ is a vector from point A to point B) Vectors 
+            can also be represented in many other ways, but the most common ways are: algebraically, numerically, 
+            and geometrically. Below are examples of each:
+
+            % Create a list of examples of the different ways vectors can be represented
+            \begin{itemize}
+
+                \item \textbf{Algebraically:} $\vec{a} = \langle x, y \rangle$
+                \item  \textbf{Numerically:} $\vec{a} = \left[ a, b, c \right]$ (Can also be written as a column matrix)
+
+                \item { \textbf{Geometrically:} 
+
+                    \begin{center}
+
+                        % Draw a vector and label the ends as A and B
+                        \begin{tikzpicture}
+                        
+                            % Draw & Label the Vector Arrow
+                            \draw[->] (0, 0) -- (6, 2) node[midway, above, sloped] {$\vec{AB}$};
+
+                            % Label the points
+                            \node[right] (B) at (6, 2) {B};
+                            \node[left] (A) at (0, 0) {A};
+
+                        \end{tikzpicture}
+
+                    \end{center}
+                                        
+                } 
+
+            \end{itemize}
+
+            % Describe opposite and equal vectors then paint an image of them 
+
+            \newpage
+
+        \end{flushleft}
+
         \subsection{Vector Addition and Substraction}
+
+            \begin{flushleft}
+
+
+
+            \end{flushleft}
+
         \subsection{Scalar Multiplication}
         \subsection{Properties of Vectors}
         \subsection{Vectors as Forces}
@@ -109,9 +182,9 @@
     \section{Applications of Derivatives}
         \subsection{Velocity and Acceleration}
         \subsection{Optimization With an Equation Given}
-        \subsection{Optimization With no Equation Given}
+        \subsection{Optimization With no Equation loosely dashed-latexGiven}
 
     \section{Exponential and Trigonometric Functions}
-        \subsection{Exponential Functions and the Number e}
+    \subsection{Exponential Functions and Euler's Number}
 
 \end{document}
