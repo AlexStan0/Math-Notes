@@ -12,13 +12,9 @@
 \usepackage[T1]{fontenc}
 \usepackage[font=small, labelfont=bf]{caption}
 \usepackage{fourier}
-\usepackage[protrusion=true, expansion=true]{microtype}
 \usepackage[english]{babel}
 \usepackage{sectsty}
-\usepackage{url, lipsum}
 \usepackage[T1]{fontenc}
-\usepackage{icomma}
-\usepackage{siunitx}
 \usepackage{ragged2e}
 \usepackage{amsmath}
 \usepackage{comment}
@@ -55,8 +51,7 @@
 \fancyhf{}
 \setlength\headheight{15pt}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[L]{Alexandru Stan}
-\fancyfoot[L]{\thepage}
+\fancyhead[L]{Stan \thepage}
 \fancyfoot[R]{\thepage\space\text{of}\space\pageref{LastPage}}
 
 \begin{document}
@@ -109,14 +104,12 @@
             % State the different ways vectors can be written and the different ways they can be represented visually
             When written in mathematical equations, vectors are usually represented via a a symbol with a vector indicator (i.e $\vec{v}$)
             or via a jointery of the two points (i.e $\vec{AB}$ is a vector from point A to point B) Vectors 
-            can also be represented in many other ways, but the most common ways are: algebraically, numerically, 
-            and geometrically. Below are examples of each:
+            can also be represented in many other ways, but the most common ways are: algebraically and geometrically. Below are examples of each:
 
             % Create a list of examples of the different ways vectors can be represented
             \begin{itemize}
 
-                \item \textbf{Algebraically:} $\vec{a} = \langle x, y \rangle$
-                \item  \textbf{Numerically:} $\vec{a} = \left[ a, b, c \right]$ (Can also be written as a column matrix)
+                \item \textbf{Algebraically:} $\vec{a} = \left[ a, b, c \right]$ \footnote{Vectors represented algebraically can also be written in column matrices}
 
                 \item { \textbf{Geometrically:} 
 
@@ -155,6 +148,11 @@
                         % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
                         \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
+                        % Label the points
+                        \node[left] (A) at (0, 0) {A};
+                        \node[right] (B) at (2, 4) {B};
+                        \node[left] (C) at (3, 0) {C};
+                        \node[right] (D) at (5, 4) {D};
                     \end{tikzpicture}
                     \caption{Equivalent Vectors}
                 \end{subfigure}
@@ -166,6 +164,11 @@
                         % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
                         \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
+                        % Label the points
+                        \node[left] (A) at (0, 0) {A};
+                        \node[right] (B) at (2, 4) {B};
+                        \node[right] (C) at (5, 4) {C};
+                        \node[left] (D) at (3, 0) {D};
                     \end{tikzpicture}
                     \caption{Equivalent Vectors}
                 \end{subfigure}
