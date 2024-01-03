@@ -1,4 +1,4 @@
-\documentclass[14pt]{article}
+\documentclass[12pt]{article}
 
 % Import dependencies
 \usepackage[a4paper]{geometry}
@@ -23,9 +23,13 @@
 \usepackage{amsmath}
 \usepackage{comment}
 \usepackage{tikz}
+<<<<<<< HEAD
 \usepackage[bottom]{footmisc}
 \usepackage{hyperref}
 \usepackage[framemethod=TikZ]{mdframed}
+=======
+\usepackage{subcaption}
+>>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -33,6 +37,7 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 
+<<<<<<< HEAD
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -41,6 +46,8 @@
     urlcolor=black
 }
 
+=======
+>>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 % Change font-family to a monospace font
 \renewcommand{\familydefault}{\rmdefault}
 
@@ -57,7 +64,8 @@
 \fancyhf{}
 \setlength\headheight{15pt}
 \renewcommand{\footrulewidth}{0.4pt}
-\fancyhead[L]{Stan \thepage}
+\fancyhead[L]{Alexandru Stan}
+\fancyfoot[L]{\thepage}
 \fancyfoot[R]{\thepage\space\text{of}\space\pageref{LastPage}}
 
 \begin{document}
@@ -122,7 +130,8 @@
             \begin{itemize}
 
                 \item \textbf{Algebraically:} $\vec{a} = \langle x, y \rangle$
-                \item  \textbf{Numerically:} $\vec{a} = \left[ x, y, z \right]$ \footnote{Numerical vectors can also be written as column matrices}
+                \item  \textbf{Numerically:} $\vec{a} = \left[ a, b, c \right]$ (Can also be written as a column matrix)
+
                 \item { \textbf{Geometrically:} 
 
                     \begin{center}
@@ -153,35 +162,43 @@
 
             % Create two figures to represent equal and opposite vectors
             \begin{figure}[h]
-                \begin{subfigure}[b]{0.5\linewidth}
+                
+                \centering
+                \begin{subfigure}[b]{0.4\linewidth}
+                    
                     \centering
                     \begin{tikzpicture}
+                        
+                        % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
                         \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
-                        \node[left] (A) at (0, 0) {A};
-                        \node[right] (B) at (2, 4) {B};
-                        \node[left] (C) at (3, 0) {C};
-                        \node[right] (D) at (5, 4) {D};
-                    \end{tikzpicture}%
-                    \caption{Equivalent Vectors} \label{fig:eq_vec}
+
+                    \end{tikzpicture}
+                    \caption{Equivalent Vectors}
+
                 \end{subfigure}
-                %
-                \begin{subfigure}[b]{0.5\linewidth}
+
+                \centering
+                \begin{subfigure}[b]{0.4\linewidth}
+                    
                     \centering
                     \begin{tikzpicture}
+                        
+                        % Draw & Label the Vector Arrow
                         \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
-                        \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{CD}$};
-                        \node[left] (A) at (0, 0) {A};
-                        \node[right] (B) at (2, 4) {B};
-                        \node[right] (C) at (5, 4) {C};
-                        \node[left] (D) at (3, 0) {D};
-                    \end{tikzpicture}%
-                    \caption{Opposite Vectors} \label{fig:op_vec}
-                \end{subfigure}
-            \end{figure}
+                        \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
 
+<<<<<<< HEAD
             % Force the next section to a new page
             newpage
+=======
+                    \end{tikzpicture}
+                    \caption{Equivalent Vectors}
+
+                \end{subfigure}
+
+            \end{figure}
+>>>>>>> parent of bea21d5 (Nearly done writing the intro to vec section, missing the parallel vectors part)
 
         \end{flushleft}
 
