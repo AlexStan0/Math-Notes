@@ -20,6 +20,8 @@
 \usepackage{comment}
 \usepackage{tikz}
 \usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{commath}
 
 % Create a new command for horizontal lines without indentation
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
@@ -27,6 +29,7 @@
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
 
+% Create links to the pages for the Table of Contents
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -34,6 +37,9 @@
     linkcolor=black,
     urlcolor=black
 }
+
+% Load the tikz libraries
+\usetikzlibrary{angles, arrows.meta, quotes}
 
 % Change font-family to a monospace font
 \renewcommand{\familydefault}{\rmdefault}
@@ -88,28 +94,31 @@
         \begin{flushleft}
 
              % Write a simple introduction into what vectors are before we move on
-            Vectors are mathematical entities that extend our understanding beyond the 
-            one-dimensional quantities. Unlike scalar values that only have magnituide, 
+            To Introduce, vectors are mathematical entities that extend our understanding beyond the 
+            one-dimensional quantities. Unlike scalar values that only have magnitude, 
             vectors incorporate both magnitude and direction, offering a versatile toolkit
             for describing dynamic sytstems. 
 
             % List some scalar and vector quantities
-            \begin{itemize}
-                \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
-                Energy, Work, Power, etc.
-                \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
-                Force, Momentum, etc.
-            \end{itemize}
+            \begin{mdframed}
+                Scalar Vs. Vector Quantities
+                \begin{itemize}
+                    \item \textbf{Scalar Quantities:} Mass, Temperature, Time, Distance, Speed, 
+                    Energy, Work, Power, etc.
+                    \item \textbf{Vector Quantities:} Displacement, Velocity, Acceleration, 
+                    Force, Momentum, etc.
+                \end{itemize}
+            \end{mdframed}
 
             % State the different ways vectors can be written and the different ways they can be represented visually
             When written in mathematical equations, vectors are usually represented via a a symbol with a vector indicator (i.e $\vec{v}$)
-            or via a jointery of the two points (i.e $\vec{AB}$ is a vector from point A to point B) Vectors 
-            can also be represented in many other ways, but the most common ways are: algebraically and geometrically. Below are examples of each:
+            or via a jointery of two points (i.e $\vec{AB}$ is a vector from point A to point B) Vectors 
+            can also be represented in many other ways, but the most common ways are, as denoted below, algebraically and geometrically. 
 
             % Create a list of examples of the different ways vectors can be represented
             \begin{itemize}
 
-                \item \textbf{Algebraically:} $\vec{a} = \left[ a, b, c \right]$ \footnote{Vectors represented algebraically can also be written in column matrices}
+                \item \textbf{Algebraically:} $\vec{a} = \langle x, y, z \rangle$ \footnote{Vectors represented algebraically can also be written in column matrices}
 
                 \item { \textbf{Geometrically:} 
 
@@ -136,48 +145,269 @@
             % Describe opposite and equal vectors then paint an image of them 
             Vectors can be equal (or equivalent) to each other. For two vectors to be equal (or equivalent) 
             they must have the same magnitude and direction. Vectors can also be opposite to each other; to be
-            opposing vectors must have the same magnitude but opposite directions 
-            (i.e $\vec{v} = -\vec{v}$).
+            opposing vectors must have the same magnitude but opposite directions (i.e $\vec{AB} = -\vec{CD}$ as shown in \textbf{Figure 1b}). 
 
             % Create two figures to represent equal and opposite vectors
             \begin{figure}[h]
-                \centering
-                \begin{subfigure}[b]{0.4\linewidth}
+                \begin{mdframed}
+                    \centering
+                    \begin{subfigure}[b]{0.4\linewidth}
+                        \centering
+                        \begin{tikzpicture}
+                            % Draw & Label the Vector Arrow
+                            \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
+                            \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
+                            % Label the points
+                            \node[left] (A) at (0, 0) {A};
+                            \node[right] (B) at (2, 4) {B};
+                            \node[left] (C) at (3, 0) {C};
+                            \node[right] (D) at (5, 4) {D};
+                        \end{tikzpicture}
+                        \caption{Equivalent Vectors}
+                    \end{subfigure}
+                    %
+                    \centering
+                    \begin{subfigure}[b]{0.4\linewidth}
+                        \centering
+                        \begin{tikzpicture} 
+                            % Draw & Label the Vector Arrow
+                            \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
+                            \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
+                            % Label the points
+                            \node[left] (A) at (0, 0) {A};
+                            \node[right] (B) at (2, 4) {B};
+                            \node[right] (C) at (5, 4) {C};
+                            \node[left] (D) at (3, 0) {D};
+                        \end{tikzpicture}
+                        \caption{Equivalent Vectors}
+                    \end{subfigure}
+                \caption{Equivalent and Opposite Vectors}
+                \end{mdframed}
+            \end{figure}
+
+            % Start a new page for formatting reasons
+            \newpage
+
+            % Explain what parralel vectors are and the symbol used to denote them
+            Vectors can also be parallel to each other. For two vectors to be considered parallel to each other they must have the same, or opposite direction. 
+            Although, they do not have to have the same magnitude. The symbol used to denote parallel vectors is the `or' symbol (i.e $\vec{v} \parallel \vec{a}$).
+
+            % Create a figure to represent parralel vectors
+            \begin{figure}[h]
                     \centering
                     \begin{tikzpicture}
-                        % Draw & Label the Vector Arrow
-                        \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
-                        \draw[->] (3, 0) -- (5, 4) node[midway, above, sloped] {$\vec{CD}$};
-                        % Label the points
-                        \node[left] (A) at (0, 0) {A};
-                        \node[right] (B) at (2, 4) {B};
-                        \node[left] (C) at (3, 0) {C};
-                        \node[right] (D) at (5, 4) {D};
+                        
+                        % Label the points where the vectors start and end
+                        \node (A) at (0, 0) {A};
+                        \node (B) at (2, 4) {B};
+                        \node (C) at (6, 0) {C};
+                        \node (D) at (8, 4) {D};
+    
+                        % Draw the vectors
+                        \draw[->] (A) -- (B);
+                        \draw[->] (C) -- (D);
+                        \draw[->] (A) -- (C);
+                        \draw[->] (B) -- (D);
+    
                     \end{tikzpicture}
-                    \caption{Equivalent Vectors}
-                \end{subfigure}
-                %
-                \centering
-                \begin{subfigure}[b]{0.4\linewidth}
-                    \centering
-                    \begin{tikzpicture} 
-                        % Draw & Label the Vector Arrow
-                        \draw[->] (0, 0) -- (2, 4) node[midway, above, sloped] {$\vec{AB}$};
-                        \draw[->] (5, 4) -- (3, 0) node[midway, above, sloped] {$\vec{DC}$};
-                        % Label the points
-                        \node[left] (A) at (0, 0) {A};
-                        \node[right] (B) at (2, 4) {B};
-                        \node[right] (C) at (5, 4) {C};
-                        \node[left] (D) at (3, 0) {D};
-                    \end{tikzpicture}
-                    \caption{Equivalent Vectors}
-                \end{subfigure}
+                    \caption{Parallel Vectors}
             \end{figure}
+
+            Lastly, when dealing with vectors in any dimension, it is important to note the angle between two vectors. The 
+            angle between vectors is often reffered as angle $\theta$ where $\theta \le 180^{\circ}$ (although it can be denoted as any other variable). It is often
+            in trigonometric laws, such as the cosine law, to solve for the different properties; such as the magnitude of a vector
+            or the angle between differrent vectors.
+
+            % Create a figure to represent the angle between two vectors
+            \begin{figure}[h]
+                    \centering
+                    \begin{tikzpicture}
+                        
+                        % Label the points where the vectors start and end
+                        \node (A) at (0, 0) {};
+                        \node (B) at (5, 4) {};
+                        \node (C) at (5, 0) {};
+
+                        % Draw the vectors
+                        \draw[->] (A) -- (B) node[midway, above, sloped] {$\vec{v_1}$};
+                        \draw[->] (A) -- (C) node[midway, below, sloped] {$\vec{v_2}$};
+
+                        % Draw the angle between the two vectors
+                        \pic [draw, -, angle eccentricity=1.5, "$\theta$"] {angle = C--A--B};
+
+                    \end{tikzpicture}
+                    \caption{Angle $\theta$ Between Vectors $\vec{v_1}$ and $\vec{v_2}$}
+            \end{figure} 
 
         \end{flushleft}
         \clearpage
-        \subsection{Vector Addition and Substraction}
+        % END SECTION "VECTORS"
+
+        \subsection{Vector Addition and Subtraction}
+
+        \begin{flushleft}
+            
+            % Talk about the resultant and what it is
+            When adding vectors together, a different result is produced compared to that of a scalar addition. 
+            When adding vectors together, the resultant vector is the sum of the two vectors. The resultant vector 
+            is a vector that begins at the tail-end of the first vector. The resultant is often labeled $\vec{r}$ as
+            depicted in \textbf{Fig. 4}\newline
+
+            % Explain what vector subtraction is
+            Vector subtraction on the other hand is nothing more than adding the opposite of a vector. For example, 
+            given vectors $\vec{AB}$ and $\vec{BC}$, $\vec{AB} - \vec{BC}$ is the same as $\vec{AB} + (-\vec{BC})$.
+            Vector subtraction has all the same properties as vector addition and also produces a resultant vectors
+            as depicted in \textbf{Fig. 4}
+
+            % Draw a deptiction of the resultant vector
+            \begin{figure}[h]
+                \centering
+                \begin{tikzpicture}
+
+                    % Label the points where the vectors start and end
+                    \node (A) at (0, 0) {};
+                    \node (B) at (0, 4) {};
+                    \node (C) at (5, 4) {};
+
+                    % Draw the vectors
+                    \draw[->] (A) -- (B) node[midway, left] {$\vec{v_1}$};
+                    \draw[->] (B) -- (C) node[midway, above] {$\vec{v_2}$};
+                    \draw[->] (A) -- (C) node[midway, below, sloped] {$\vec{r}$} ;
+    
+                \end{tikzpicture}
+                \caption{Resultant Vector}
+            \end{figure}
+
+            % Talk about the different ways vectors can be arranged when added
+            Consider the following vectors $\vec{AB}$, and $\vec{BC}$ respectively. To be added
+            they must be positioned tip to tail as indicated below in such a way that $\vec{AB} = \vec{r}$
+
+            \begin{center}
+                \begin{tikzpicture}
+                
+                    % Label the points where the vectors start and end
+                    \node (A) at (0, 0) {A};
+                    \node (B) at (3, 3) {B};
+                    \node (C) at (7, 3) {C};
+    
+                    % Draw the vectors
+                    \draw[->] (A) -- (B) node[midway, above, sloped] {$\vec{AB}$};
+                    \draw[->] (B) -- (C) node[midway, above, sloped] {$\vec{BC}$};
+                    \draw[->] (A) -- (C) node[midway, below, sloped] {$\vec{r}$} ;
+    
+                \end{tikzpicture}
+            \end{center}
+
+            They can also be positioned tail to tail, so that a when built a pallalelogram is formed 
+            with the resultant vector splitting the pallalelogram in half diagonally as depicted in the diagram below.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    
+                    % Label the points where the vectors start and end
+                    \node (A) at (0, 0) {A};
+                    \node (B) at (8, 0) {B};
+                    \node (C) at (11, 4) {};
+                    \node (D) at (3, 4) {D};
+
+                    % Label the other angles
+                    \node (a) at (10.3, 3.5) {$\alpha$};
+                    \node (b) at (7.8, 0.6) {$\beta$};
+    
+                    % Draw the vectors
+                    \draw[->, dashed] (D) -- (C);
+                    \draw[->, dashed] (B) -- (C);
+                    \draw[->] (A) -- (B) node[midway, below] {$\vec{AB}$};
+                    \draw[->] (A) -- (D) node[midway, above, sloped] {$\vec{DC}$};
+                    \draw[->] (A) -- (C) node[midway, below, sloped] {$\vec{r}$};
+
+                    % Draw the angle between vectors
+                    \pic [draw, -, angle radius=1.2cm, angle eccentricity=1.25, "$\theta$"] {angle = B--A--D};
+    
+                \end{tikzpicture}
+            \end{center}
+
+            \clearpage
+
+            When adding, or subtracing, vectors the magnitude of the resultant vector $\vec{r}$ can be found using the
+            cosine law with adapted variables. The direction of the vector can also be defined by angles $\alpha, \beta$, and $\gamma$
+            using the sine law. 
+
+            \begin{figure}[h]
+                \begin{mdframed}
+                    \centering
+                    \begin{subfigure}[b]{0.4\linewidth}
+                        \centering
+                        \[ \norm{\vec{r}} = \sqrt{\norm{\vec{a}}^2 + \norm{\vec{b}}^2 - 2\norm{\vec{a}}\norm{\vec{b}}\cos{C}}\]
+                        \caption{Magnitude using Cosine Law}
+                    \end{subfigure}
+                    %
+                    \centering
+                    \begin{subfigure}[b]{0.4\linewidth}
+                        \centering
+                        \[ \frac{\sin\alpha}{\norm{\vec{a}}} = \frac{\sin\beta}{\norm{\vec{b}}} = \frac{\sin\gamma}{\norm{\vec{r}}} \]
+                        \caption{Direction using Sine Law}
+                    \end{subfigure}
+                    \caption{Vector magnitude and angle relationships using sine and cosine law}
+                \end{mdframed}
+            \end{figure}
+            
+            % Talk about specific cases of vector addition
+            When it comes to vector addition, the angle between the vectors added matter when determining the magnitude and 
+            direction of the resultant vector. There are special cases, that although can be worked out, are simpler to 
+            memories and recognise when solving problems.
+
+            \begin{mdframed}
+
+                Special cases
+
+                \begin{enumerate}
+                    \item $\theta = 0$ then $\norm{\vec{a} + \vec{b}} = \norm{\vec{a}} + \norm{\vec{b}}$
+                    \item $\theta = 90$ then $\norm{\vec{a} + \vec{b}} = \sqrt{\norm{\vec{a}}^2 + \norm{\vec{b}}^2}$
+                    \item $\theta = 180$ then $\norm{\vec{a} + \vec{b}} = \norm{\vec{a}} - \norm{\vec{b}}$
+                \end{enumerate}
+            \end{mdframed}
+
+        \end{flushleft}
+        %END SUBSECTION "VECTOR ADDITION AND SUBSTRACTION"
         \subsection{Scalar Multiplication}
+
+        \begin{flushleft}
+            
+            % Explain what scalar multiplication is
+            When multiplying a vector by a scalar, some assumptions must be made. $\vec{v}$ must be a vector with 
+            magnitude and direction and a scalar $k$, where $k\space\in\space\mathbb{R}$. 
+            Assuming that those conditions are fufilled then a set of rules can be applied to determined the result
+            of the multiplication as listed below. 
+
+                \begin{enumerate}
+                    \item If $k > 0$ then $k\vec{v}$ has the same direction as $\vec{v}$
+                    \item If $k < 0$ then $k\vec{v}$ has the opposite direction as $\vec{v}$
+                    \item If $k = 0$ then $k\vec{v} = \vec{0}$
+                \end{enumerate}
+
+            \begin{figure}[hb!]
+                \begin{mdframed}
+                    \centering
+                    \begin{tikzpicture}
+                        
+                        % Label the points on the graph
+                        \node (X) at (10, 0) {x};
+                        \node (Y) at (0, 2) {y};
+
+                        % Draw the vectors 
+                        \draw[->] (-1, 0) -- (X);
+                        \draw[->] (0, -1) -- (Y);
+                        \draw[->] (1, 0) -- (2, 1) node[midway, above, sloped] {$\vec{v}$};
+                        \draw[->] (4, 2) -- (2, 0) node[midway, above, sloped] {$-2\vec{v}$};
+                        \draw[->] (0.5, 0) -- (1, 0.5) node[midway, above, sloped] {$\frac{1}{2}\vec{v}$};
+
+                    \end{tikzpicture}
+                    \caption{Examples of Scalar Multiplication}
+                \end{mdframed}
+            \end{figure}
+            
+        \end{flushleft}
         \subsection{Properties of Vectors}
         \subsection{Vectors as Forces}
         \subsection{Vectors as Velocity}
@@ -186,7 +416,6 @@
         \subsection{Dot Product and Cross Product}
         \subsection{Application of Dot and Cross Product}
         \subsection{Scalar and Vector Projections}
-
     \section{Lines and Planes}
         \subsection{Vector, Parametric, and Symmetric Equations of a Line}
         \subsection{Vector and Parametric Equations of a Plane}
@@ -194,7 +423,7 @@
         \subsection{Intersection of a Lines and Planes}
         \subsection{Intersection of Two Planes}
         \subsection{Intersection of Three Planes}
-
+ 
     \section{Limits and Continuity}
         \subsection{Introduction to Limits}
         \subsection{Special Limits with Trigonometric Functions}
