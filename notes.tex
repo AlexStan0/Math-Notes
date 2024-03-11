@@ -14,6 +14,13 @@
 \usepackage{amssymb}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
 
+\newcommand{\C}{{\mathbb{C}}} 
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\F}{{\mathbb{F}}}
+
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
 \newcommand{\uit}[1]{\textit{#1}}
@@ -26,7 +33,7 @@
 
 % Create title
 \title{
-    \textbf{AP Calculus AP:\\ Notes, Formulas, Examples}
+    \textbf{AP Calculus AB:\\ Notes, Formulas, Examples}
     \author{Alexandru Stan}
     \date{Start date: February 2, 2024 \\ End date: May 13, 2024}
 }
@@ -54,14 +61,18 @@
 
     The limit is when a given value approaches, or gets \textit{really close} (infinitely) to another value. 
     The standard limit notation is:
+
     \[
         \lim_{x \to c} f(x)    
     \]
+
     represents when $x$ can approach $c$ from either left ($-$) or the right ($+$). By adding
     a sign superscript to the $c$, it means that $x$ can only approach from that direction:
+
     \[
         \lim_{x \to c^+} f(x)    
     \]
+
     \begin{center}
         \uit{Right hand limit}, $x$ approaches $c$ from values greater than $c$
         \[
@@ -77,6 +88,7 @@
     coefficient and the degree of polynomial
 
     \noindent Example:
+
     \[
         \begin{aligned}
             f(x) &= 3x^3 - 7x^2 + 2 \\
@@ -96,6 +108,7 @@
     would be \uit{unbounded} as it approaches that $x$ value. 
 
     \noindent Example:
+
     \[
         \begin{aligned}
             f(x) &= \frac{2x-4}{x-3}\\
@@ -137,7 +150,7 @@
         Multiplication of the limits of functions is quite straightforward
         
         \[
-            lim_{x \to c} [f(x) \cdot g(x)] \implies \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x)    
+            \lim_{x \to c} [f(x) \cdot g(x)] \implies \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x)    
         \]
 
         The same exception applies when one of the limits is \uit{undefined}. This just makes
@@ -146,6 +159,7 @@
         \item \textbf{Division}
         
         Division is basically the same as the other basic operations except if the denominator is 0
+
         \[
             \lim_{x \to c} \frac{f(x)}{g(x)} \implies \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)}   
         \]
@@ -154,8 +168,20 @@
         
         When working with composite functions, it's the same thing as taking
         the limit of the inner function, then evaluating the outer function normally
+
         \[
             \lim_{x \to c} f\bigg(g(x)\bigg) \implies f\bigg(\lim_{x \to c} g(x)\bigg)    
+        \]
+
+        \item \textbf{Other Theorems}
+        
+        Given that $\lim f(x)$ and $\lim g(x)$ are both finite for all numbers, and $C$ is a ``constant"
+
+        \[
+            \begin{aligned}
+                \lim kf(x) &= k \lim f(x) \\
+                \lim_{x \to a} C &= C 
+            \end{aligned}    
         \]
 
     \end{itemize}
@@ -212,6 +238,186 @@
 
         \subsection{Continuity}
 
+        A function is continous at a point if its right and left hand side limit at that point are the same. 
+        In other words, it can be drown without lifting the pencil.
+
+        \[
+            \lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = f(c)    
+        \]
+
+        For a function $f$ to be continous for all $\R$ it has to return a real numbe result for all 
+        real number values of $x$. Basically $f: \R \to \R$ 
+
+        \begin{itemize}
+            
+            \item $\sqrt{x + 4}$ is continous $\forall x: x \ge -4$
+            \item $\sqrt[5]{x}$ is continous $\forall x: x \in \R$
+            \item $\ln x$ is continous $\forall x: x > 0$
+            \item $\frac{1}{x-3}$ is continous $\forall x: x \ne 3$
+
+        \end{itemize}
+
+        \textbf{Removable dicontinuity} is function, where a point is ``removed'', and the graph of the new function 
+        is almost identical to the original function
         
+        \noindent Given:
+
+        \[
+            \lim_{x \to c} f(x) = k \le \infty
+        \]
+
+        \noindent where:
+
+        \[
+            F(x) = \begin{cases}
+                f(x) & \text{if } x \ne c \\
+                k & \text{if } x = c
+            \end{cases}
+        \]
+
+        then $F(x)$ has a removable dicontinuity at $k$
+
+        \textbf{Jump dicontinuity} is when the graph jumps from one $y$ value to another at the 
+        same $x$-value. 
+
+        \textbf{Infinite dicontinuity} Usually occurs when there is a vertical asymptote, and the 
+        dicontinuity occurs over asymptote. Basically, both sides of the asymptote approach that $x$-value, but never actually touch, 
+        so the function is not continous. 
+
+        \subsection{Squeeze Theorem}
+
+        When it is to find the limit for a function, the squeeze theorem can be used. Basically, you find
+        two other functions, one on top and on below, and use their limits to ``squeeze'' the limit of 
+        the given function. 
+
+        \noindent Given:
+
+        \[
+            g(x) \le f(x) \le h(x) 
+        \]
+
+        \noindent for all $x$ in an open interval that includes $c$, and 
+
+        \[
+            \lim_{x \to c} f(x) = \lim_{x \to c} h(x) = L    
+        \]
+        
+        \noindent then,
+        \[
+            \lim_{x \to c} g(x) = L
+        \]
+        
+        \noindent Note that $x$ and $L$ can both be $\pm\infty$
+
+        \noindent \textbf{Example:}
+
+        \[
+            \begin{aligned}
+                & \text{Problem:}                          &                                  & \lim_{x \to \infty} \frac{\sin{x}}{x} \\[6pt]
+                & \text{keep in mind that}                 & -1                               & \le \sin{x} \le 1                     \\
+                & \text{divide by $x$}                     & \frac{-1}{x}                     & \le \frac{\sin{x}}{x} \le \frac{1}{x} \\[6pt]
+                & \text{take limits of smaller functions } & \lim_{x \to \infty} \frac{-1}{x} & = 0 = \lim_{x \to \infty} \frac{1}{x} \\[6pt]
+                & \text{Squeeze Theorem:}                  & \lim_{x \to \infty}              & \frac{\sin{x}}{x} = 0.
+                \end{aligned}    
+        \]
+
+        The best way to solve the above problem is to recognmize the easier part of the problem, 
+        in this case $\sin x$, then manipulate the inequality in such a way that the middle function becomes the 
+        original problem. Solve the limits of the other two functions to solve the original limit
+
+        \subsection{Intermediate Value Theorem (IVT)}
+
+        Given a function $f$ where $f \in C[a, b]$ and $c \in [a, b]$. Then there must a value  $c$ such that $f(a) \le f(c) \le f(b)$. In other words, if a 
+        function is continous from $a \to b$, then it must take on every value between $f(a)$ and $f(b)$ for all values of $x$ 
+        such that $x \in [a, b]$
+
+        \section{Differentiation: Definition and Fundamental}
+
+        A derivative is the \textbf{instantaneous} rate of change of a function at a point. It's the average
+        rate of change over an infintely small interval. It has two main notations. 
+
+        \begin{itemize}
+            
+            \item \textbf{Lagrange's Notation: } The derivative of $f(x)$ is denoted as $f'(x)$, pronounced as ``f prime of x''. 
+                                                 Higher order derivatives are denoted as $f''(x)$ or $f^2(x)$, etc. In general it's 
+                                                 written as $f^{n}(x)$, or with the $n$ in ticks.
+
+            \item \textbf{Leibniz's Notation: } The derivative of $f(x)$ is denoted as $\frac{dy}{dx}$, pronounced as ``dee y over dee x''. 
+                                                Higher order derivatives are denoted as $\frac{d^2y}{dx^2}$, etc. In general it's 
+                                                written as $\frac{d^ny}{dx^n}$
+
+        \end{itemize}
+
+        \subsection{Continuity and Differentiability}
+
+        \noindent\textbf{Differentiability: } A function is differentiable for every value in its domain
+        \noindent\textbf{Continuity: } The function has no breaks over its domain, can be drawn without lifting the pencil
+
+        \noindent Differentiability \textit{implies} continuity, but not the other way around
+
+        \subsection{Derivative as a Limit}
+
+        The derivative of a function $f(x)$ at a point $x = a$ is quite truly just first principles, it is as follows:
+
+        \[
+            \begin{aligned}
+                \frac{d}{dx} f(x) &= \lim_{h \to 0} \frac{f(x + h) - f(x)}{h} \\
+                \frac{d}{dx} f(a) &= \lim_{x \to a} \frac{f(x) - f(a)}{h}
+            \end{aligned}
+        \]
+
+        \subsection{Differentiation Rules}
+
+        \subsubsection{Derivative of a Constant}
+
+        The derivative of a constant is always $0$. This is because the slope of a constant function is always $0$
+
+        \[
+            \begin{aligned}
+                f(x) &= C \\
+                f^{\prime}(x) &= C^{\prime} = 0
+            \end{aligned}    
+        \]
+
+        \subsubsection{Constant in a function}
+
+        The constant can be moved out in front of the derivative
+
+        \[
+            (k f(x))^{\prime} = k f^{\prime}(x)
+        \]
+
+        \subsubsection{Sum Rule}
+
+        The derivative of the sum of many functions is the same as the sum of ther derivatives
+        of the individual functions. The same applies for subtraction
+
+        \[
+            \sum_{k = 1}^n \bigg[f_n(x)\bigg] = \sum_{k = 1}^n \bigg[f_n^{\prime}(x)\bigg]    
+        \]
+
+        \subsubsection{Power Rule}
+
+        You put the exponent in front of the function as constant and then substract 1 from the exponent.
+        This also applies to negative or fractional exponents (radicals)
+
+        \[
+            \begin{aligned}
+                f(x) &= x^n : n \in \R \\
+                f^{\prime}(x) &= nx^{n-1}
+            \end{aligned}    
+        \]
+
+        \subsubsection{Product Rule}
+
+        \[
+            \bigg[f(x) \cdot g(x)\bigg]^{\prime} = f^{\prime}(x)g(x) + f(x)g^{\prime}(x)    
+        \]
+
+        \subsubsection{Quotient Rule} 
+
+        \[
+            \bigg[\frac{f(x)}{g(x)}\bigg]^{\prime} = \frac{f^{\prime}(x)g(x) - f(x)g^{\prime}(x)}{g^2(x)}    
+        \]
 
 \end{document}
