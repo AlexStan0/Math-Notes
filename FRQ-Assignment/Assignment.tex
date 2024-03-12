@@ -1,0 +1,146 @@
+\documentclass{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+\setlength{\parskip}{1.5em}
+\newcommand{\C}{\mathal{C}}
+\newcommand{\qspace}{\vspace*{1.7em}}
+
+\pagestyle{fancy}
+\fancyhead[L]{\bf\large IDC4UP: AP Calculus AB \\ FRQ Assignment}
+\fancyhead[R]{\bf\large March 2024 \\}
+\setlength{\headheight}{35pt}
+
+\title{
+    \textbf{AP Calculus AB: \\Free-Response Question}
+    \author{Alexandru Stan}
+    \date{March 10, 2024}
+}
+
+\begin{document}
+
+    \maketitle
+    \vfill
+    \newpage
+
+    \section*{Introduction}
+
+    A Calculator is not allowed for this question, and, all AP guidlines (as stated below) 
+    are to be followed. 
+
+    Show all of your work, even though the question may not explicitly remind you to do so. Clearly label any
+    functions, graphs, tables, or other objects that you use. Justifications require that you give mathematical reasons,
+    and that you verify the needed conditions under which relevant theorems, properties, definitions, or tests are
+    applied. Your work will be scored on the correctness and completeness of your methods as well as your answers.
+    Answers without supporting work will usually not receive credit.
+
+    Unless otherwise specified, answers (numeric or algebraic) need not be simplified. If your answer is given as a
+    decimal approximation, it should be correct to three places after the decimal point.
+
+    Unless otherwise specified, the domain of a function $f$ is assumed to be the set of all real numbers $x$ for which
+    $f(x)$ is a real number.
+
+    \section*{Questions}
+
+    \begin{table}[h]
+        \def\arraystretch{2}
+        \begin{tabular}{|c|c|c|c|c|c|}
+            \hline
+            $t_{\text{(hours)}}$ & 1 & 3 & 5 & 6 & 9 \\
+            \hline
+            $S(t)_{\text{(sales per hour)}}$ & 2 & 11 & 8 & 5 & 2 \\
+            \hline 
+        \end{tabular}
+    \end{table} 
+
+    The rate at which cars are sold at a dealership is modeled by $S(t)$ where $S(t)$ is continous, twice-differentiable function.
+    $S$ is measured in sales per hour and $t$ is measured in hours where $0 \le t \le 11$ such that
+    $t = 0$ is 8am. Values are given in the above table for selected values of $t$.
+
+    \begin{enumerate}
+        
+        \item[(a)] Use the data in the table above to approximate $S^{\prime}(4)$. Show the computations that lead to your answer
+                   and indicate units of measure. \textbf{[3 pts]} \qspace 
+        \item[(b)] Use a right Riemann sum with the four subinvtervals indicated by the data in the table to 
+                   approximate $\int_3^6 R(t)dt$. Indicate units of measure. \textbf{[2 pts]} \qspace
+        \item[(c)] Is the approximation in part (b) an overestimate or underestimate of $\int_3^6$? \textbf{[2 pts]} \qspace
+        \item[(d)] The sum $\sum_{k = 1}^n S\left(3 + \frac{2(k - 1)}{n}\right)\frac{2}{n}$ is a left Riemann sum with $n$ subintervals of equal length. 
+                   The limit of this sum as $n$ goes to $\infty$ can be stated as a definite integrals. Express the limit as a definite integral. \textbf{[2 pts]}
+
+    \end{enumerate}
+    \newpage
+
+
+    \fancyhead[L]{\bf\large IDC4UP: AP Calculus AB \\ FRQ Assignment Solutions}
+    \fancyhead[R]{\bf\large March 2024 \\}
+
+    \section*{Solutions}
+
+    \begin{enumerate}
+
+		% (a)
+		\item[(a)]
+		
+            \textbf{[1 pt]} To receive the first point, the student must understand that the Mean Value Theorem
+            is required. They must also state it out in a fashion that is similar to the following: 
+
+            \begin{center}
+                \textit{The Mean Value Theorem states that if a function is continuous on the closed interval $[a, b]$ 
+                and and differentiable on the open interval $(a, b)$, then there exists a number $c$ in the 
+                open interval $(a, b)$ such that $f^{\prime}(c) = \frac{f(b) - f(a)}{b - a}$.}
+            \end{center}
+
+            \textbf{[1 pt]} Another point is then awarded if the student is able to recognize the correct values to plug in the correct values,
+            to solve for $S^{\prime}(4)$, which, in this case, are $a = 3$ and $b = 5$.
+
+            \textbf{[1pt]} The student is awarded a point for returning the correct answer as follows below
+
+            \[
+                \begin{aligned}
+                    S^{\prime}(4) &= \frac{f(5) - f(3)}{5 - 3} \\
+                    S^{\prime}(4) &= \frac{8 - 11}{2} \\
+                    S^{\prime}(4) &= -\frac{3}{2}
+                \end{aligned}    
+            \]
+
+            And for stating the correct units, in this case, \textit{sales per hour per hour} or $\frac{\text{sales}}{h^2}$ \qspace
+		
+		% (b)
+		\item[(b)]
+		
+                \textbf{[1pt]} The student is awarded a point for recognizing the right Riemann Sum and plugging in the correct values
+                as shown below
+
+                \[
+                        (6)(5) + (5)(8)
+                \]
+
+                \textbf{[1pt]} Another point is then awarded for returning a correct answer of $70$, and for stating the 
+                correct units of measurement, in this case, \textit{sales} \qspace
+		
+        \item[(c)]
+        
+                \textbf{[1pt]} A point is awarded for recognising and stating that in the interval $[3, 6]$ the function is 
+                decreasing and concave down.
+
+                \textbf{[1 pt]} Another point is awarded for stating that due to the above reasons, the approximation from the 
+                right Riemann sum is an overestimate of the actual value of the integral. \qspace
+        
+        \item[(d)] 
+        
+                \textbf{[1 pt]} The student is awarded a point of recognising the correct upper and lower bounds (where $a$ is the lower bound and $b$ is the upper bound) 
+                of the integral, in this case, $a=3$ and $b=5$
+
+                \textbf{[1 pt]} Another point is awarded for the student correctly recognizing the intergrand and correctly
+                stating all the above factors in the form of a definite integral, as shown below
+
+                \[
+                    \int_3^5 S(t)dt    
+                \]
+		
+    \end{enumerate}
+
+\end{document}

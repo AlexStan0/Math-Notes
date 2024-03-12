@@ -13,6 +13,13 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{\bf\large AP Calc - Notes}
+\fancyhead[R]{\bf\large Semester 2}
+\setlength{\headheight}{35pt}
 
 \newcommand{\C}{{\mathbb{C}}} 
 \newcommand{\N}{{\mathbb{N}}}
@@ -389,11 +396,11 @@
 
         \subsubsection{Sum Rule}
 
-        The derivative of the sum of many functions is the same as the sum of ther derivatives
+        The derivative of the sum of many functions is the same as the sum of the derivatives
         of the individual functions. The same applies for subtraction
 
         \[
-            \sum_{k = 1}^n \bigg[f_n(x)\bigg] = \sum_{k = 1}^n \bigg[f_n^{\prime}(x)\bigg]    
+            \sum_{k = 1}^n \bigg[f_n(x)\bigg] = \left[\sum_{k = 1}^n \bigg[f_n(x)\bigg]\right]^{\prime}
         \]
 
         \subsubsection{Power Rule}
@@ -419,5 +426,391 @@
         \[
             \bigg[\frac{f(x)}{g(x)}\bigg]^{\prime} = \frac{f^{\prime}(x)g(x) - f(x)g^{\prime}(x)}{g^2(x)}    
         \]
+
+        \subsubsection{Chain Rule}
+
+        The chain rule allows for the differentiation of a \textit{composition} of two or more function. 
+        Take the derivative of the inner function, then multiply that by the derivative of the outer function. 
+
+        \[
+                \frac{d}{dx} \bigg[f(g(x))\bigg] = f^{\prime}(g(x)) \cdot g^{\prime}(x)
+        \]
+
+        \subsection{Exponential Functions}
+
+        Can be solved like the \textbf{chain rule}, with the base and exponent as the outer and inner
+        functions, respectively. The formula is:
+
+        \[
+            \frac{d}{dx}(a^x) = a^x \cdot \ln a    
+        \]
+
+        \noindent The only exception is $e^x$
+
+        \[
+            \frac{d}{dx} (e^x) = e^x   
+        \]
+
+        \subsection{Lograithmic Functions}
+
+        The derivative of $\ln x$ is:
+        
+        \[
+            \frac{d}{dx} (\ln x) = \frac{1}{x}  
+        \]
+
+        This can be used to derive the derivative of other base log functions
+
+        \[
+            \begin{aligned}
+                \frac{d}{dx} (\log_a x) &= \frac{d}{dx} \bigg(\frac{\ln x}{\ln a}\bigg) \\
+                                        &= \frac{a}{\ln a} \cdot \frac{d}{dx}(\ln x) \\
+                                        &= \frac{1}{\ln a} \cdot \frac{1}{x} \\
+                                        &= \frac{1}{x\ln a}  
+            \end{aligned}
+        \]
+
+        \subsection{Trigonometric Functions}
+
+         There isn't really an eaasy way to memorize these, just do enough problems
+         and you'll get the hang of it.
+
+         Although, do note that all of the functions other than $\sin$ and $\cos$ can be derived using the 
+         quotient of chain Rules
+
+         
+        \begin{center}
+            \begin{tabular}{ | c |  c  |}
+                \hline
+                $f(x)$ & $f^{\prime}(x)$ \\
+                \hline
+                $\sin x$ & $\cos x$ \\
+                \hline
+                $\cos x$ & $-\sin x$ \\
+                \hline
+                $\tan x$ & $\sec^2 x$ \\
+                \hline
+                $\cot x$ & $-\csc^2 x$ \\
+                \hline
+                $\sec x$ & $\sec x \cdot \tan x$ \\
+                \hline
+                $\csc x$ & $-\csc x \cdot \cot x$ \\
+                \hline
+             \end{tabular}
+        \end{center}
+
+        \subsection{Inverse Functions}
+
+        The derivative of an inverse function is the reciprocal of the 
+        derivative of the original with it's input being the inverse
+
+        \[
+                \frac{d}{dx} f^{-1}(x) = \frac{1}{f^{\prime}(f^{-1}(x))}   
+        \]
+
+        \section{Differentiation: Composite, Implicit, and Inverse Functions}
+
+        \subsection{Implicit Differentiation}
+
+        Implicit differentiation is taking the derivative of both sides of an equation with respect to
+        two variables, usually $x$ and $y$, by treating one of the variables as a function of the other. 
+        (Usually $y$ is a function of $x$)
+
+        \noindent Example:
+
+        \[
+            \begin{aligned}
+                x^2 + y^2 &= 1 \\
+                \frac{d}{dx} (x^2 + y^2) &= \frac{d}{dx} \\
+                \frac{d}{dx} (x^2) + \frac{d}{dx} (y^2) &= 0 \\
+                2x + 2y \cdot \frac{dy}{dx} &= 0 \\
+                x + y \cdot \frac{dy}{dx} &= 0 \\
+                \frac{dy}{dx} &= -\frac{x}{y}
+            \end{aligned}
+        \]
+
+        When taking the derivative of $y^2$, multiply by $\frac{dy}{dx}$ because the equation is being taken
+        as a function of $x$
+
+        \subsection{Inverse Trigonometric Functions}
+
+        These equations cna be found using implicit differentiation along with trig identities. 
+        \textit{A more indepth explanation is provided for each under the table}
+
+        \begin{center}
+            \begin{tabular}{ | c | c |}
+                \hline
+                $f(x)$ & $f^{\prime}(x)$ \\
+                \hline
+                $\arcsin x$ & $\frac{1}{\sqrt{1 - x^2}}$ \\
+                \hline
+                $\arccos x$ & $-\frac{1}{\sqrt{1 - x^2}}$ \\
+                \hline
+                $\arctan x$ & $\frac{1}{1 + x^2}$ \\
+                \hline
+                $\text{arcsec } x$ & $\frac{1}{|x|\sqrt{x^2 - 1}}$ \\
+                \hline
+                $\text{arccsc } x$ & $-\frac{1}{|x|\sqrt{x^2 - 1}}$ \\
+                \hline
+                $\text{arccot } x$ & $-\frac{1}{1 + x^2}$ \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \begin{itemize}
+            
+            \item arcsin $x$ 
+            
+                \[
+                    \begin{aligned}
+                        y = \arcsin x &\implies x = \sin y \\  
+                        \frac{d}{dx}(\sin y) &= \frac{d}{dx} x \\
+                        \frac{dy}{dx} (\cos y) &= 1 \\
+                        \frac{dy}{dx} &= \frac{1}{\cos y} \\
+                        \frac{dy}{dx} &= \frac{1}{\sqrt{1 - \sin^2 y}} \\
+                        \frac{dy}{dx} &= \frac{1}{\sqrt{1 - x^2}} \\
+                    \end{aligned}  
+                \]
+
+            \item arccos $x$
+
+                \[
+                    \begin{aligned}
+                        y = \arccos x &\implies x = \cos y \\  
+                        \frac{d}{dx}(\cos y) &= \frac{d}{dx} x \\
+                        \frac{dy}{dx} (-\sin y) &= 1 \\
+                        \frac{dy}{dx} &= \frac{-1}{\sin y} \\
+                        \frac{dy}{dx} &= \frac{-1}{\sqrt{1 - \cos^2 y}} \\
+                    \end{aligned}  
+                \]
+
+            \item arctan $x$ 
+            
+                \[
+                    \begin{aligned}
+                        y = \arctan x &\implies x = \tan y \\  
+                        \frac{d}{dx}(\tan y) &= \frac{d}{dx} x \\
+                        \frac{dy}{dx} (\sec^2 y) &= 1 \\
+                        \frac{dy}{dx} &= \frac{1}{\sec^2 y} \\
+                        \frac{dy}{dx} &= \frac{1}{1 + \tan^2 y} \\
+                        \frac{dy}{dx} &= \frac{1}{1 + x^2} \\
+                    \end{aligned}  
+                \]
+
+        \end{itemize}
+
+        \subsection{Higher Order Derivatives}
+
+        To find higher order derivatives, take the derivative of the prvious order derivative. 
+
+        \[
+            \frac{d^n}{dx^n} = \frac{d}{dx}\bigg(\frac{d^{n-1}}{dx^{n-1}} f(x)\bigg)   
+        \]
+
+        \section{Contextual Applications of Differentiation}
+
+        \subsection{Straight Line Motion: Position, Velocity, and Acceleration}
+
+        \noindent\textbf{Position: } where something is at a given time $t$
+
+        \noindent\textbf{Velocity: } how fast something is moving at a given time $t$. Determines 
+        the direction of the object
+
+        \[
+            v(t) \begin{cases}
+                < 0 \implies \text{Left} \\
+                = 0 \implies \text{Stopped} \\
+                > 0 \implies \text{Right}
+            \end{cases}    
+        \]
+
+        \noindent\textbf{Acceleration: } Determines whether the velocity is increasing at a given time $t$. 
+        If it's sign is the same as that of the velocity, the object is speeding up. If the two signs are different, the
+        object is slowing down. If the acceleration is 0, the object is moving at a constant speed. 
+
+        Position, velocity, and acceleration are all related as follows
+
+        \[
+            \begin{aligned}
+                x^{\prime}(t) &= v(t) \\
+                v^{\prime}(t) &= a(t) \\
+            \end{aligned}    
+        \]
+
+        \subsection{Related Rates}
+
+        Related rates is using implicit differentiation and given variables to solve for unknown variables
+
+        \noindent Examples:
+
+        \begin{enumerate}
+            
+            \item Given the equation $\frac{x}{y} = 9$ and, $\frac{dy}{dt} = -\frac{2}{3}$, 
+            find $\frac{dx}{dt}$ when $x = 3$
+
+            \textbf{Solution: }
+
+            First, differentiate $\frac{x}{y} = 9$ with respect to $t$
+
+            \[
+                \begin{aligned}
+                    \frac{x}{y} &= 9 \\
+                    \frac{y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt}}{y^2} &= 0 \\
+                \end{aligned}
+            \]
+
+            To solve for $\frac{dx}{dt}$, we first have to solve for $y$
+
+            \[
+                \begin{aligned}
+                    \frac{x}{y} &= 9 \\
+                    \frac{3}{y} &= 9 \\
+                    3 &= 9y \\
+                    y &= \frac{1}{3}
+                \end{aligned}    
+            \]
+
+            Finally, plug in all the variables to solve for $\frac{dx}{dt}$
+
+            \[
+                \begin{aligned}
+                    \frac{y \cdot \frac{dx}{dt} - x \cdot \frac{dy}{dt}}{y^2} &= 0 \\
+                    \frac{\frac{1}{3} \cdot \frac{dx}{dt} - 3 \cdot -\frac{2}{3}}{\frac{1}{3^2}} &= 0 \\
+                    \frac{\frac{1}{3} \cdot \frac{dx}{dt} + 2}{\frac{1}{3}} &= 0 \\
+                    \frac{1}{3} \cdot \frac{dx}{dt} + 2 &= 0 \\
+                    \frac{dx}{dt} &= -6
+                \end{aligned}    
+            \]
+
+            \item The surface area of a sphere if increasing at a rate of $14\pi$ square meters per hour. 
+            At a certain instant, the surface area is $36\pi$ square meters. \textbf{What is the rate of the 
+            volume of the sphere at that instant (in cubic meters per hours)?}
+
+            \textbf{Solution: }
+
+            The surface area (A) of a sphere with radius $r$ is $4\pi r^2$ 
+            The volume (V) of a sphere with radius $r$ is $\frac{4}{3}\pi r^3$
+            First, identiy what was given:
+
+            \begin{itemize}
+                \item $\frac{dA}{dt} = 14\pi$
+                \item $A = 36\pi = 4\pi r^2$
+                \item $V = \frac{4}{3}\pi r^3$
+            \end{itemize}
+
+            Next, what is unknown:
+
+            \begin{itemize}
+                \item $r = ?$
+                \item $\frac{dV}{dt} = ?$
+            \end{itemize}
+
+            Secondly, solve for for $r$
+
+            \[
+                \begin{aligned}
+                    A &= 4\pi r^2 \\
+                    36\pi &= 4\pi r^2 \\
+                    \frac{36\pi}{4\pi} &= r^2 \\
+                    \sqrt{9} &= r \\
+                    r &= 3
+                \end{aligned}
+            \]
+
+            Then, solve for $\frac{dr}{dt}$
+
+            \[
+                \begin{aligned}
+                    A &= 4\pi r^2 \\
+                    \frac{dA}{dt} &= 8\pi r \cdot \frac{dr}{dt} \\
+                    14\pi &= 8\pi \cdot 3 \cdot \frac{dr}{dt} \\
+                    \frac{14\pi}{3\cdot 8\pi} = \frac{dr}{dt} \\
+                    \frac{7}{12} &= \frac{dr}{dt} 
+                \end{aligned}    
+            \]
+
+            Lastly, solve for $\frac{dV}{dt}$ using the above info
+
+            \[
+                \begin{aligned}
+                    V &= \frac{4}{3}\pi r^3 \\
+                    \frac{dV}{dt} &= 4\pi r^2 \cdot \frac{dr}{dt} \\
+                    \frac{dV}{dt} &= 4\pi \cdot 3^2 \cdot \frac{7}{12} \\
+                    \frac{dV}{dt} &= 21\pi
+                \end{aligned}    
+            \]
+
+        \end{enumerate}
+
+        \subsection{Local Linearity and Approximation}
+
+        \textbf{Local linearity} is the idea that if we zoome in really close to a point on a graph that is differeitable at all points
+        in its doman, it would eventually be a straight line, \textit{a tangent line}.
+
+        The general formula for the tangent line at a point $x = a$ is:
+
+        \[
+            y = u^{\prime}(a)(x - a) + u(a)  
+        \]
+
+        \subsection{L'Hopitals Rule}
+
+        \noindent L'Hopitals Rule states that:
+
+        \begin{gather*}
+            \text{IF} \\
+            \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{0}{0} \quad \text{OR} \quad \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\pm\infty}{\pm\infty}\\
+            \text{THEN} \\
+            \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f^{\prime}(x)}{g^{\prime}(x)}
+        \end{gather*}
+
+        \section{Analytical Applications of Differentiation}
+
+        \subsection{Mean Value Theorem}
+
+        The mean value theorem states that if a function is continous on a closed interval $[a, b]$ and differentiable on the 
+        open interval $(a, b)$, then there is at least one point $c$ in the open interval such that: 
+
+        \[
+            f^{\prime}(c) = \frac{f(b) - f(a)}{b - a}    
+        \]
+
+        \subsection{Extreme Value Theorem}
+
+        The extreme value theorem states that if a function is continous over a closed invterval $[a, b]$, then it has both a 
+        maximum and minimum value on that interval. There must also exist $c$ and $d$ in $[a, b]$ such that:
+
+        \[
+            f(c) \le f(x) \le f(d) \quad \forall x \in [a, b]    
+        \]
+
+        \section{Intergration and Accumulation of Change}
+
+        The accumulation of change is the net change of a quantity. This is not the same
+        thing as simply the quantity. The accumulation of change takes into consideration time, 
+        and it is the quantity over a specified time period. There may be some quantity before or 
+        after this time period, but we would not count that. 
+
+        \subsection{Riemann Sums}
+
+        A Riemann sum is a way to approximate the area under a curve. It splits up the area into several
+        rectangles, where the heights match the function. The sum of the area provides a decent
+        approximation of the area under the curve.
+
+        \subsubsection{Type of Riemann Sums}
+
+        \begin{itemize}
+            
+            \item \textbf{Left Riemann Sums} line up the left side of the rectangle with the curve of the function
+            \item \textbf{Right Riemann Sums} line up the right side of the rectangle with the curve of the function
+            \item \textbf{Midpoint Riemann Sums} line up the midpoint of the rectangle with the curve of the function
+            \item \textbf{Trapezoidal Riemann Sums} line up the trapezoids with the curve of the function
+
+        \end{itemize}
+
+        With each type of sum, the more rectangles used, the more accurate the approximation. This can be achieved my making 
+        $\Delta x$, the base of the rectangle, smaller and smaller. 
+
+        \subsubsection{Riemann Sums in Summation Notation}
 
 \end{document}
