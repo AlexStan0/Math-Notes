@@ -1,0 +1,152 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[margin=1.2in]{geometry} % margins
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{chemfig}
+\usepackage[version=4]{mhchem}
+\usepackage{tikz}
+
+\hypersetup {
+    linkcolor=black
+}
+
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
+\newcommand{\C}{\ce{C}}
+\setlength{\parskip}{1em}
+\addto\captionsenglish{\renewcommand{\contentsname}{Units}}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{\bf\large 4U Chemistry - Notes}
+\fancyhead[R]{\bf\large Semester 2}
+\setlength{\headheight}{35pt}
+
+% Create title
+\title{
+    \textbf{4U Chemistry:\\ Notes, Drawings, Examples}
+    \author{Alexandru Stan}
+    \date{Start date: February 2, 2024 \\ End date: June 27th, 2024}
+}
+
+\begin{document}
+
+    \maketitle
+    \vfill
+    \newpage 
+
+    \tableofcontents
+    \fline
+    \newpage
+
+    \section{Alcohol and Ethers}
+
+    An alcohol group is an organic compound that contains the hydroxyl $\ce{-OH}$ functional group
+    the ``alcohol" in beer and w
+    ine is really ``ethanol''
+
+    % \begin{tabular*}{ |  c  | c | c | c | c |}
+        
+    % \end{tabular*}
+
+    \noindent\textbf{Some Important Alcohols:}
+    \begin{itemize}
+        \item Methanl - prodiced from wood, often used a solvent but is toxic
+        \item Isopropanol (propan-2-yl) - Rubbing alcohol, used as an antiseptic
+        \item Glycerol - Used to make fats in the body. (propan-1,2,3-ol)
+    \end{itemize}
+
+    \subsection{Naming Alcohols}
+
+    When naming alcohol, the following rules need to be followed in this exact order:
+
+    \begin{center}
+        \begin{enumerate}
+            \item Identify the longest chain of $\ce{C}$ that contains the $\ce{-OH}$ (hydroxyl) group
+            \item Number the $\ce{C}$ atoms with the \#$1$ closest to the $\ce{-OH}$. It has prority over the alkyl 
+                  groups and halogens
+            \item Drop the -e ending (if two vowels are present) on alkane and add -ol. Use a number
+                  if needed before the -ol
+            \item Name any side branches % TODO: double check this!!
+    
+        \end{enumerate}
+    \end{center}
+
+    \subsubsection{Aromatic Alcohols}
+
+    The simples aromatic alcohol is a benzene ring with one hydroxyl group group
+    bondede to it. Its IUPAC name is phenol
+
+    \chemfig{} %DO LATER, DRAW BENZEN WITH -OH
+
+    If the benzene ring has two $\ce{-OH}$ groups attached, the name is based on benzene
+    and inlcudes numbers for the $\ce{-OH}$ groups
+
+    \subsection{Primary, Secondary, and Tertiary Alchols}
+
+    Alcohols are classified acording to where the $\ce{-OH}$ is attached. They
+    are classified as primary, secondary, and tertiary alchols as stated below:
+
+    \begin{itemize}
+        \item $1^{\circ}$ (Primary Alcohol) - Hydroxyl group attached to the end 
+        \item $2^{\circ}$ (Secondary Alcohol) - Hydroxyl group attached to a $\ce{C}$ that is attached
+                          to two other $\ce{C}$% TODO: finish this section
+        \item $3^{\circ}$ (Tertiary Alchol) - Hydroxyl group attached to a $\C$ that is attached to
+                          three other $\C$
+    \end{itemize}
+
+    \subsection{Polyalcohols}
+
+    Polyalcohols are just alcohols with more than one hydroxyl. For Nomencalture, use suffixes
+    (di, tri, etc.) and numbers. The -e is kept if it followed by a consonant but is dropped
+    if followed by a vowel
+
+    \subsection{Properties of Alcohols}
+
+    The presence of $\ce{-OH}$ group makes the molecule polar that can form hydrogen bonds. The longer
+    the Carbon ($\C$) the less polar it is. Small alcohols are completely soluble in water, but the 
+    solubility decreases as the length of the carbon chain increases. 
+
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[<->, thick] (0, 0) -- (7, 0); % TODOL DRAW THE SOLUBILITY LINE
+        \end{tikzpicture}
+    \end{center}
+
+    \subsubsection{BP and MP}
+
+    Alcohols can hydrogen bond and have higer MP and BP than 
+    hydrocarbons of similar sizes
+
+    \begin{center}
+        \begin{tabular}{ | c | c | c |}
+            \hline
+            Molecule & Molar Mass & Boiling Point \\
+            \hline
+            Propane & $44$ g/mol & $-42.1^{\circ}$C \\
+            \hline
+            Ethanol & $46$ g/mol & $78.3^{\circ}$C \\
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \subsection{Ethers}
+
+    In an ether, the functional group consists of two C atoms connected to a single $\ce{O}$
+    atom. The $\ce{C - O}$ bond is polar and the shape is bent, making it a polar molecule. Ethers
+    are also known to be good solvents
+
+    \begin{center}
+        \chemfig{C(-[2]H) - O - C(-[2]H)}
+    \end{center}
+
+\end{document}
