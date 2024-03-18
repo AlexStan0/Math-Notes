@@ -775,6 +775,18 @@
             f^{\prime}(c) = \frac{f(b) - f(a)}{b - a}    
         \]
 
+        \noindent \textbf{\textit{Extra Cool Stuff (Notation)}}
+
+        They written above is the correct way taught in the AP curriculum, but you can also shorten it as follows:
+
+        The mean value theorems states that $f \in C[a, b] \cap C^1(a, b) \to \exists c\in(a, b)$ such that: 
+
+        \[
+            f^{\prime}(c) = \frac{f(b) - f(a)}{b - a}    
+        \]
+
+        \textbf{Warning: }\textit{Although this may seem cool, I would not reccomend it as it is confusing and VERY easy to mess up, stick with the normal notation}
+
         \subsection{Extreme Value Theorem}
 
         The extreme value theorem states that if a function is continous over a closed invterval $[a, b]$, then it has both a 
@@ -812,5 +824,64 @@
         $\Delta x$, the base of the rectangle, smaller and smaller. 
 
         \subsubsection{Riemann Sums in Summation Notation}
+
+        Given any Riemann sum over an interval $[a, b]$ with $n$ rectangles of \textit{equal width}, the sum can be written as,
+        $\Delta x$ can be defined as $\frac{b - a}{n}$. The bottom right corner of each rectangle will be $x_i$, so $x_i = a + \Delta \cdot i$
+
+            \begin{center}
+                \begin{tabular}{ |  c  |  c  |}
+                    \hline
+                    Left & Right \\
+                    \hline
+                    $\sum_{i = 0}^{n - 1} \Delta x \cdot f(x_i)$ & $\sum_{i = 1}^{n} \Delta x \cdot f(x_i)$ \\
+                    \hline
+                \end{tabular}
+            \end{center}
+
+        \subsection{Definite Integrals}
+
+        As $\Delta x$ gets smaller and smaller in the Riemann Sums, it is possible to get better approximations of the area under a curve.
+        However, it is imposssible to calculate the exact area under a cruev using a finite number of rectangles. In order to do 
+        so, an infinitely small $\Delta x$ would be needed. Definite integrals can find the \textit{exact} area of an interval under
+        a curve. 
+
+        The definite integral notation over $[a, b]$ of $f(x)$ is:
+
+        \[
+            \int_a^b f(x) \space dx
+        \]
+        
+        The connection between definite integrals and Riemann Sums is as follows:
+
+        \[
+            \int_a^b f(x) \space dx = \lim_{n \to \infty} \sum_{i = 1}^{n} \Delta x \cdot f(x_i)    
+        \]
+
+        where $\Delta x = \frac{b - a}{n}$ and $x_i = a + \Delta x \cdot i$
+
+        \subsection{The Fundamental Theorem of Calculus}
+
+        The fundamental theorem of calculus states:
+
+        Let $f$ be a continous function over $[a, b]$, and let:
+
+        \[
+            F(x) = \int_a^x f(t) \space dt    
+        \]
+
+        $F$ is the antiderivative of $f$, or in other words, the derivative of $F$ is $f$. This can 
+        explain how to solve for the area under a curve using antidiffferentiation.
+
+        \[
+            \int_a^b f(x) \space dx = F(b) - F(a)    
+        \]
+
+        \noindent \textit{Note:}
+
+        The notation is the same as the one above and is commonly used
+
+        \[
+            \int_a^b f(x) \space dx = F(x) {|}_a^b   
+        \]
 
 \end{document}
