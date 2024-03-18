@@ -51,24 +51,23 @@
             \hline
             $t_{\text{(hours)}}$ & 1 & 3 & 5 & 6 & 9 \\
             \hline
-            $S(t)_{\text{(sales per hour)}}$ & 2 & 11 & 8 & 5 & 2 \\
+            $s(t)_{\text{(sales per hour)}}$ & 2 & 11 & 8 & 5 & 2 \\
             \hline 
         \end{tabular}
     \end{table} 
 
-    The rate at which cars are sold at a dealership is modeled by $S(t)$ where $S(t)$ is continous, twice-differentiable function.
+    The rate at which cars are sold at a dealership is modeled by $s(t)$ where $s(t)$ is continous, twice-differentiable function.
     $S$ is measured in sales per hour and $t$ is measured in hours where $0 \le t \le 11$ such that
     $t = 0$ is 8am. Values are given in the above table for selected values of $t$.
 
     \begin{enumerate}
         
-        \item[(a)] Use the data in the table above to approximate $S^{\prime}(4)$. Show the computations that lead to your answer
-                   and indicate units of measure. \textbf{[3 pts]} \qspace 
+        \item[(a)] Using the Fundamental Theorem of Calculus, determine the definite inegral notation for $s(t)$ over the interval $[a, b]$. \qspace 
         \item[(b)] Use a right Riemann sum with the four subinvtervals indicated by the data in the table to 
-                   approximate $\int_3^6 R(t)dt$. Indicate units of measure. \textbf{[2 pts]} \qspace
-        \item[(c)] Is the approximation in part (b) an overestimate or underestimate of $\int_3^6$? \textbf{[2 pts]} \qspace
+                   approximate $\int_3^6 R(t)dt$. Indicate units of measure. \qspace
+        \item[(c)] Is the approximation in part (b) an overestimate or underestimate of $\int_3^6$? \qspace
         \item[(d)] The sum $\sum_{k = 1}^n S\left(3 + \frac{2(k - 1)}{n}\right)\frac{2}{n}$ is a left Riemann sum with $n$ subintervals of equal length. 
-                   The limit of this sum as $n$ goes to $\infty$ can be stated as a definite integrals. Express the limit as a definite integral. \textbf{[2 pts]}
+                   The limit of this sum as $n$ goes to $\infty$ can be stated as a definite integrals. Express the limit as a definite integral.
 
     \end{enumerate}
     \newpage
@@ -84,30 +83,32 @@
 		% (a)
 		\item[(a)]
 		
-            \textbf{[1 pt]} To receive the first point, the student must understand that the Mean Value Theorem
-            is required. They must also state it out in a fashion that is similar to the following: 
+            \textbf{[1 pt]} To receive the first point, the student must understand correctly write out the integral over the interval
+                            $[a, b]$. In this case, the student must write out the integral as follows:
 
-            \begin{center}
-                \textit{The Mean Value Theorem states that if a function is continuous on the closed interval $[a, b]$ 
-                and and differentiable on the open interval $(a, b)$, then there exists a number $c$ in the 
-                open interval $(a, b)$ such that $f^{\prime}(c) = \frac{f(b) - f(a)}{b - a}$.}
-            \end{center}
+                            \[
+                                \int_a^b s(t)dt    
+                            \]
 
-            \textbf{[1 pt]} Another point is then awarded if the student is able to recognize the correct values to plug in the correct values,
-            to solve for $S^{\prime}(4)$, which, in this case, are $a = 3$ and $b = 5$.
+            \textbf{[1 pt]} Another point is then awarded if the student is able to express in mathemical notation that the definite integral
+                            can be evaluated at the end points and then those end points can be substracted:
 
-            \textbf{[1pt]} The student is awarded a point for returning the correct answer as follows below
+                            \[
+                                \int_a^b s(t)dt = S(b) - S(a)
+                            \]
 
-            \[
-                \begin{aligned}
-                    S^{\prime}(4) &= \frac{f(5) - f(3)}{5 - 3} \\
-                    S^{\prime}(4) &= \frac{8 - 11}{2} \\
-                    S^{\prime}(4) &= -\frac{3}{2}
-                \end{aligned}    
-            \]
+            \textbf{\textit{Note: }}The student is allowed to used the following notation in their answer, but, only this notation  
+                                    and the one that preceeds it are allowed.
 
-            And for stating the correct units, in this case, \textit{sales per hour per hour} or $\frac{\text{sales}}{h^2}$ \qspace
+                                    \[
+                                        \int_a^b s(t)dt = S(t) |_{a}^{b}
+                                    \]
+
+
 		
+            \textbf{[1 pt]} A final point is awarded if the student is able to correcly state the Fundamental Theorem of Calulus. In this case, 
+                            stating that the above is true as $S(t)$ is the antiderivative of $s(t)$ \qspace 
+
 		% (b)
 		\item[(b)]
 		
@@ -138,7 +139,7 @@
                 stating all the above factors in the form of a definite integral, as shown below
 
                 \[
-                    \int_3^5 S(t)dt    
+                    \int_3^5 s(t)dt    
                 \]
 		
     \end{enumerate}
