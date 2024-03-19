@@ -14,6 +14,7 @@
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
 \usepackage{tikz}
+\usepackage{amsmath}
 
 \hypersetup {
     linkcolor=black
@@ -24,6 +25,11 @@
 \newcommand{\C}{\ce{C}}
 \setlength{\parskip}{1em}
 \addto\captionsenglish{\renewcommand{\contentsname}{Units}}
+
+% Create commands for the molecule states
+\newcommand{\gas}{_{\text{(g)}}}
+\newcommand{\solid}{_{\text{(s)}}}
+\newcommand{\liquid}{_{\text{(l)}}}
 
 \pagestyle{fancy}
 
@@ -48,15 +54,53 @@
     \fline
     \newpage
 
-    \section{Alcohol and Ethers}
+    \section{Organic Chemistry}
+
+    \subsection{Reactions of Hydrocarbons}
+
+    There are serveral reactions of hydrocarbons (\~20 I think?) and this is
+    too low of a level to logic it out, so it will all be memorization, get
+    ready.
+
+    \subsection{Alkane Reactions}
+
+    In general, alkanes are fairly unreactive, however, the burn very easily in combustion
+    reactions, releasing a lot of energy.
+
+    Reactants of the reaction will be the hydrocarbon and $\ce{O_{2\text{(g)}}}$ with the products
+    of a complete combustion being $\ce{CO_{2\text{(g)}} + H2O_{\text{(g)}}}$
+
+    \subsubsection{Alkane Reactions - Substitution Reaction}
+
+    During a substitution replaced a $\ce{H}$ atom with a halogen to make
+    an alkyl halide. This reaction only occurs with three halogen gases $\ce{F2}$, 
+    $\ce{Cl2}$, and $\ce{Br2}$. 
+
+    This reaction can create a mixture of different isomers and can occur in multiple
+    phases, making multiple substituions if needed.
+
+    \textbf{\textit{NOTE:}} This reaction required UV light to occur
+
+    \begin{center}
+        \chemfig{C(-[:90]H)(-[:180]H)(-[:270]H) - C(-[:90]H)(-[:0]H)(-[:270]H)}
+        + $\ce{Br_{2\gas} ->[\text{UV Light}]}$ \chemfig{C(-[:90]H)(-[:180]H)(-[:270]H) - C(-[:90]H)(-[:0]Br)(-[:270]H)}
+        + $\ce{HBr_{\gas}}$
+    \end{center}
+    
+    \subsection{Alcohols}
 
     An alcohol group is an organic compound that contains the hydroxyl $\ce{-OH}$ functional group
-    the ``alcohol" in beer and w
-    ine is really ``ethanol''
+    the ``alcohol'' in beer and wine is really ``ethanol''
 
-    % \begin{tabular*}{ |  c  | c | c | c | c |}
-        
-    % \end{tabular*}
+    \begin{center}
+        \begin{tabular}{| c | c | c | c |}
+            \hline
+            $\ce{CH3OH}$ & $\ce{CH3CH2OH}$ & $\ce{CH3CH2CH2OH}$ & $\ce{CH3CH2CH2CH2OH}$\\
+            \hline
+            methanol & ethanol & propan-1-ol & butan-1-ol \\
+            \hline
+        \end{tabular}
+    \end{center}
 
     \noindent\textbf{Some Important Alcohols:}
     \begin{itemize}
@@ -81,15 +125,41 @@
         \end{enumerate}
     \end{center}
 
+    \noindent Examples:
+
+    \begin{itemize}
+        
+        \item pentan-1-ol 
+        
+        \[
+            \ce{CH3-CH2-CH2-CH2-CH2-OH}    
+        \]
+
+        \item pentan-3-ol
+        
+        \[
+            \chemfig{CH3-CH2-CH2(-[6]OH)-CH2-CH3}    
+        \]
+
+        \item 
+
+    \end{itemize}
+
     \subsubsection{Aromatic Alcohols}
 
     The simples aromatic alcohol is a benzene ring with one hydroxyl group group
     bondede to it. Its IUPAC name is phenol
 
-    \chemfig{} %DO LATER, DRAW BENZEN WITH -OH
+    \begin{center}
+        \chemfig{*6(-=-=(-OH)-=)}
+    \end{center}
 
     If the benzene ring has two $\ce{-OH}$ groups attached, the name is based on benzene
     and inlcudes numbers for the $\ce{-OH}$ groups
+
+    \begin{center}
+        \chemfig{*6(-=(-OH)-(-OH)=-=)}
+    \end{center}
 
     \subsection{Primary, Secondary, and Tertiary Alchols}
 
@@ -116,12 +186,6 @@
     the Carbon ($\C$) the less polar it is. Small alcohols are completely soluble in water, but the 
     solubility decreases as the length of the carbon chain increases. 
 
-    \begin{center}
-        \begin{tikzpicture}
-            \draw[<->, thick] (0, 0) -- (7, 0); % TODOL DRAW THE SOLUBILITY LINE
-        \end{tikzpicture}
-    \end{center}
-
     \subsubsection{BP and MP}
 
     Alcohols can hydrogen bond and have higer MP and BP than 
@@ -146,7 +210,33 @@
     are also known to be good solvents
 
     \begin{center}
-        \chemfig{C(-[2]H) - O - C(-[2]H)}
+        \chemfig{C(-[:90])(-[:180])(-[:270])-\charge{90=\:, 270=\:}{O}-C(-[:90])(-[:0])(-[:270])}\\
+        \vspace*{2mm}
+        An \textbf{ether}
     \end{center}
+
+    \noindent\textbf{Some Important Ethers}
+
+    \begin{itemize}
+        
+        \item Ethylene Oxide - Used in Epoxy
+        \item MBTE - A gasoline aditive that helps gasoline burn better
+        \item 18-crown-6 - Built by Pedersen and Cram (Nobel Prize 1987, capable of building metal ions)
+
+    \end{itemize}
+
+    \subsection Naming Ethers
+    
+    When naming ethers you need to follow a set or rules are you do alcohols and other substances
+    , although, keep in mind that ethers are made up of two parts. The rules
+    are as follows
+
+    \begin{enumerate}
+        
+        \item Name the smallest alkyl group 1st, drop the -yl, and add oxy. The will
+              be named as a side chain
+        \item End with the longest alkyl group last named as an alkane. This is the parent chain
+
+    \end{enumerate}
 
 \end{document}
