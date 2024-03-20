@@ -13,8 +13,6 @@
 \usepackage{fancyhdr}
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
-\usepackage{tikz}
-\usepackage{amsmath}
 
 \hypersetup {
     linkcolor=black
@@ -225,11 +223,10 @@
 
     \end{itemize}
 
-    \subsection Naming Ethers
+    \subsection{Naming Ethers}
     
-    When naming ethers you need to follow a set or rules are you do alcohols and other substances
-    , although, keep in mind that ethers are made up of two parts. The rules
-    are as follows
+    When naming ethers you need to follow a set or rules are you do alcohols and other substances, 
+    although, keep in mind that ethers are made up of two parts. The rules are as follows
 
     \begin{enumerate}
         
@@ -238,5 +235,72 @@
         \item End with the longest alkyl group last named as an alkane. This is the parent chain
 
     \end{enumerate}
+
+    \subsection{Alcohol and Ether Reactions}
+
+    \subsubsection{Hydration Reaction}
+
+    We can prepare alcohols with an addition reaction, specifically, a hydration reaction. In this
+    reaction Alkenes with a double bond will accept/react with $\ce{H2O}$. One will take the $\ce{H+}$ 
+    and the other the $\ce{OH-}$. 
+
+    This reaction requires a strong acid catalyst, for which we will be using $\ce{H2SO4}$. Below is an example 
+    of the reaction.
+
+    % WRITE OUT THE propene + H2O reaction here, product will be propan-2-ol
+    \chemfig{\ce{H2O}(=[:330])}
+
+    
+    \subsubsection{Subsitution Reaction}
+
+    Another way an alcohol can be prepared is by susbstituting an alkyl halide with water to form an alcohol. 
+    There are no reaction conditions required in this reaction, below is an example with cholocyclohexane and water
+
+    \begin{center}
+            \chemfig{
+            *6(----(-[2]Cl)--) + \ce{H2O ->}   
+        }
+    \end{center}
+
+    We can also perform a substituion between an alcohol and a hydrogen halide to produce 
+    an alkyl halide an water. Below is an example of 3-methylbutan-1-ol and hydrogen iodide.
+
+    \begin{center}
+        \chemfig{
+            \ce{H2C}(-[2]OH)(-[:320]\ce{C2H}(-[:40]CH(-[2]\ce{CH3})(-[:320]\ce{CH3}))) + \ce{H-I}
+        }
+    \end{center}
+
+    \subsubsection{Combustion of Alcohols}
+
+    A combustion required $\ce{O2}$ and produces $\ce{CO2}$ and $\ce{H2O}$. With these reactions, though, 
+    it is important to be careful when balancing as they can get tricky! (fractions are ok)
+
+    \[
+        \ce{C2H5OH_{\liquid} + 3O2_{\gas} -> 2CO2_{\gas} + 3H2O_{\gas}}    
+    \]
+
+    \subsubsection{Dehydration Reaction}
+
+    In dehydration reaction results in the removal of a water form of alkene, it can be described
+    as a reverse hydration reaction. Similarly to its counterpart, it also required a strong acid
+    which yet again will be $\ce{H2SO4}$. An example is shown below:
+
+    % \begin{center}
+    %     \chemfig{
+    %         \ce{CH(-[:330]\ce{CH3})(-[:210]\ce{H3C})(-[2]OH) ->[\ce{H2SO4}]}
+    %     }
+    % \end{center}
+
+    \subsubsection{Condensation Reaction}
+
+    A condensation reaction is a way of preparing an ether from an alcohol. With this reaction, 
+    the $\ce{H2O}$ is condensed out with one alcohol donating a $\ce{H+}$ and the other donating
+    a $\ce{OH-}$. This reaction also required both a strong acid ($\ce{H2SO4}$) as well as extreme 
+    heat. 
+
+    \begin{center}
+        $\ce{CH3CH2OH + CH3CH2OH ->[\ce{H2SO4}][140^{\circ}\text{C}]}$ \chemfig{H_3C-[:90]CH_2(-[:40]O-CH_2-CH_3)} + $\ce{H - OH}$
+    \end{center}
 
 \end{document}

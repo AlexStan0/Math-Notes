@@ -1,0 +1,190 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumerate,nicefrac,fancyhdr,hyperref,graphicx,adjustbox}
+\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
+\usepackage[left=2.6cm, right=2.6cm, top=1.5cm, includehead, includefoot]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[d]{esvect}
+
+%% commands
+%% useful macros [add to them as needed]
+% sets
+\newcommand{\C}{{\mathbb{C}}} 
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% bases
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+
+% linear algebra
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\spn}{\operatorname{Span}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\prp}{\operatorname{perp}}
+\newcommand{\refl}{\operatorname{refl}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\nul}{\operatorname{Null}}
+\newcommand{\nully}{\operatorname{nullity}}
+\newcommand{\range}{\operatorname{Range}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\cof}{\operatorname{cof}}
+\newcommand{\Num}{\operatorname{Num}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\ipb}{\langle \thinspace, \rangle}
+\newcommand{\ip}[2]{\left\langle #1, #2\right\rangle} % inner products
+\newcommand{\M}[2]{M_{#1\times #2}(\F)}
+\newcommand{\RREF}{\operatorname{RREF}}
+\newcommand{\cv}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{\numexpr#1-1}{c}|c@{}}}{\end{array}\right]}
+\newcommand{\am}[2]{\begin{amatrix}{#1} #2 \end{amatrix}}
+
+% vectors
+\newcommand{\vzero}{\vv{0}}
+\newcommand{\va}{\vv{a}}
+\newcommand{\vb}{\vv{b}}
+\newcommand{\vc}{\vv{c}}
+\newcommand{\vd}{\vv{d}}
+\newcommand{\ve}{\vv{e}}
+\newcommand{\vf}{\vv{f}}
+\newcommand{\vg}{\vv{g}}
+\newcommand{\vh}{\vv{h}}
+\newcommand{\vl}{\vv{\ell}}
+\newcommand{\vm}{\vv{m}}
+\newcommand{\vn}{\vv{n}}
+\newcommand{\vp}{\vv{p}}
+\newcommand{\vq}{\vv{q}}
+\newcommand{\vr}{\vv{r}}
+\newcommand{\vs}{\vv{s}}
+\newcommand{\vt}{\vv{t}}
+\newcommand{\vu}{\vv{u}}
+\newcommand{\vvv}{{\vv{v}}}
+\newcommand{\vw}{\vv{w}}
+\newcommand{\vx}{\vv{x}}
+\newcommand{\vy}{\vv{y}}
+\newcommand{\vz}{\vv{z}}
+
+% display
+\newcommand{\ds}{\displaystyle}
+\newcommand{\qand}{\quad\text{and}}
+\newcommand{\qandq}{\quad\text{and}\quad}
+\newcommand{\hint}{\textbf{Hint: }}
+
+% misc
+\newcommand{\area}{\operatorname{area}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\rc}{\red{\checkmark}}
+
+%% header
+\pagestyle{fancy}
+\fancyhead[L]{\bf\large AP Calculus AB \\ In Class Work}
+\fancyhead[R]{\bf\large Winter 2023 \\}
+%\fancyfoot[C]{Page \thepage\ of 2}
+\setlength{\headheight}{35pt}
+
+\begin{document}
+	\begin{enumerate}[{\bf Q1.}] 
+	
+	%Q1
+	\item
+
+  	\begin{enumerate}
+		%Q1(a)
+		\item
+
+		\[
+            \begin{aligned}
+                \int_1^5 4x^3 dx &= (5)^4 - (1)^4\\
+                &= 625 - 1\\
+                & = 624
+            \end{aligned}    
+        \]
+		
+
+        \item 
+
+        \[
+            \begin{aligned}
+                \int_0^{\frac{\pi}{2}} (-\sin x)dx &= \cos\frac{\pi}{2} - \cos 0\\
+                &= 0 - 1 \\
+                &= -1  
+            \end{aligned}   
+        \]
+
+		
+	\end{enumerate}
+	
+	
+	% New page for Crowdmark
+	\newpage
+
+    \item
+    
+    \[
+        \begin{aligned}
+            f(x) &= \int e^x - 2x^2 dx \\
+            f(x) &= \int e^x dx  - \int 2x^2 dx\\
+            f(x) &= e^x - \frac{2}{3}x^3 + C \\
+        \end{aligned}    
+    \]
+
+    Now, given $f(0) = 4$ solve for $C$
+
+    \[
+        \begin{aligned}
+            f(0) &= e^0 + \frac{2}{3}(0)^3 + C\\
+            4 &= 1 + 0 + C \\
+            3 &= C\\
+        \end{aligned}
+    \]
+
+    \item If $f^{\prime}(x) = \frac{2}{x} + \frac{6}{x^2}$ find the particular solution of $f(x)$ is $f(1) = -7$
+
+    \[
+        \begin{aligned}
+            f(x) &= \int \frac{2}{x} + \frac{6}{x^2} dx\\
+            &= \int \frac{2}{x} dx + \int \frac{6}{x^2} dx \\
+            &= 2 - 6x^{-1} + C
+        \end{aligned}
+    \]
+
+    
+    \item $\int 3\sec^2(x)$
+
+    \[
+        \begin{aligned} 
+            f(x) &= \int (3\sec^2 x)dx\\
+            &= \tan x + C
+        \end{aligned}    
+    \]
+
+    \item $\int \frac{1}{\sqrt{1 - x^2}} dx$
+
+    \[
+        \begin{aligned}
+            f(x) &= \int \frac{1}{\sqrt{1 - x^2}} dx\\
+            &= \arcsin x + C
+        \end{aligned}
+    \]
+
+
+
+	
+\end{enumerate}
+\end{document}
