@@ -32,6 +32,7 @@
 \newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
 \newcommand{\uit}[1]{\textit{#1}}
 \setlength{\parskip}{1em}
+\setlength{\jot}{1em}
 \addto\captionsenglish{\renewcommand{\contentsname}{Units}}
 
 \hypersetup {
@@ -916,7 +917,7 @@
             \int_a^b f(x) \space dx = F(x) {|}_a^b   
         \]
 
-        \subsection{Indefinite Integrals}
+        \subsection{Indefinite Integrals and Integration Techniques}
 
         Indefinite integrals, compared to their definite counterparts, have to no bounds
         and the symbol $\int$ is used to find the antiderivative of a function. 
@@ -929,5 +930,111 @@
         \]
 
         The above is true where $F(x) = f^{\prime}(x)$
+
+
+        \subsubsection{Reverse Power Rule}
+
+        \[
+            \begin{aligned}
+                \int x^n dx &= \frac{x^{n + 1}}{n + 1} + C\\
+                \int \sqrt[m]{n^n} dx &= \int n^{\frac{n}{m}} dx\\
+                &= \frac{x^{\frac{n}{m} + 1}}{\frac{n}{m} + 1} + C
+            \end{aligned}    
+        \]
+
+        \noindent This would also apply to the antiderivative of a constant
+
+        \[
+            \begin{aligned}
+                \int A dx &= \int Ax^0 dx\\ 
+                &= \frac{Ax^1}{1} + C \\
+                &= Ax + C
+            \end{aligned}   
+        \]
+
+        \subsubsection{Reverse Power Rule Exception}
+
+        \[
+            \int \frac{1}{x} dx = \ln \left|x\right| + C   
+        \]
+
+        \subsubsection{Exponential Functions}
+
+        \[
+            \begin{aligned}
+                \int e^x dx &= e^x + C\\
+                \int a^x dx &= \frac{a^x}{\ln a}\\
+            \end{aligned}
+        \]
+
+        \subsubsection{Trigonometric Functions}
+
+        \[
+            \begin{aligned}
+                \int\sin x dx &= -\cos x + C\\
+                \int\cos x dx &= \sin x + C\\
+                \int\sec^2 x dx &= \tan x + C\\
+                \int\csc^2 x dx &= -\cot x + C\\
+                \int\sec x \tan x dx &= \sec x + C\\
+                \int\csc x \cot x dx &= -\csc x + C 
+            \end{aligned}    
+        \]
+
+        \subsection{Special Case Trigonometric Functions}
+
+        These integrals look really messy, but they may show up on AP exams so it's useful
+        to recognize these patterns to avoid unnecessary extra work
+
+        \[
+            \begin{aligned}
+                \int\frac{1}{\sqrt{a^2 - x^2}}dx &= \arcsin\left(\frac{x}{a}\right) + C\\
+                \int\frac{1}{\sqrt{a^2 - (bx)^2}}dx &= \frac{1}{a}\arctan\left(\frac{bx}{a}\right) + C\\
+                \int\frac{1}{a^2 + x^2} dx &= \frac{1}{a}\arctan\left(\frac{x}{a}\right) + C\\
+                \int\frac{1}{a^2 + (bx)^2} dx &= \frac{1}{ba}\arctan\left(\frac{bx}{a}\right)
+            \end{aligned}    
+        \]
+
+        \subsubsection{u-Substitution}
+
+        Integration using u-substitution is a very versatile method and is often
+        reffered to as a reverse chain rule. It can be used when one part of a function
+        is the derivative of another. Below is an Examples
+        
+        \noindent Find the indefinite integral:
+
+        \[
+            \int 2x\cos(x^2) dx    
+        \]
+
+        \noindent Notice that:
+
+        \[
+            \frac{d}{dx} x^2 = 2x
+        \]
+
+        \noindent We can apply u-substitution. Let $u = x^2$, then implicitly differentiate
+
+        \[
+            \begin{aligned}
+                u &= x^2\\
+                \frac{d}{dx}u &= \frac{d}{dx}x^2\\
+                \frac{du}{dx} &= 2x \\
+                du &= 2x\space dx
+            \end{aligned}
+        \]
+
+        \noindent Return to the original function, make sure $du$ is offset so that it 
+                 equals $dx$. To do that, multiply by the reciprocal of $du$
+
+        \[
+            \begin{aligned}
+                \int 2x\cos(x^2)dx &= \int 2x\cos(u)\cdot\frac{1}{2x} du\\
+                &= \int \cos(u) du\\
+                &= \sin(u) + C\\
+                &= \sin(x^2) + C
+            \end{aligned}
+        \]
+
+                
 
 \end{document}
