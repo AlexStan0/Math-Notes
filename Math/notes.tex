@@ -28,6 +28,10 @@
 \newcommand{\Z}{{\mathbb{Z}}}
 \newcommand{\F}{{\mathbb{F}}}
 
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
 \newcommand{\uit}[1]{\textit{#1}}
@@ -89,7 +93,7 @@
 
     \subsection{Limits to Infinity}
 
-    If a degree (biggest exponent) of a polynomial is greater than or equal to $1$, its
+    If the degree (biggest exponent) of a polynomial is greater than or equal to $1$, its
     limit as $x$ approaches $\pm\infty$ will also be $\pm\infty$. This depends on the sign of the leading
     coefficient and the degree of polynomial
 
@@ -980,6 +984,23 @@
             \end{aligned}    
         \]
 
+        Those above are the basic cases, in class (if with Mrs. Cooper, which you probably are if you're getting these notes lmao) 
+        you should get the following trig derivatives, I've written them out to save paper and time
+
+        \[
+            \begin{aligned}
+                \frac{d}{dx}(\sec x) &= \sec x \tan x \\
+                \frac{d}{dx}(\cot x) &= -\csc^2 x \\
+                \frac{d}{dx}(\csc x) &= -\csc x \cot x \\
+                \frac{d}{dx}(\arctan x) &= \frac{1}{1 + x^2} \\
+                \frac{d}{dx}(\arcsin x) &= \frac{1}{\sqrt{1 - x^2}} \\
+                \frac{d}{dx}(\arccos x) &= \frac{-1}{\sqrt{1 - x^2}} \\
+                \frac{d}{dx}(\arccot x) &= \frac{-1}{1 + x^2} \\
+                \frac{d}{dx}(\arccsc x) &= \frac{-1}{\left|x\right|\sqrt{x^2 - 1}} \\
+                \frac{d}{dx}(\arcsec x) &= \frac{1}{\left|x\right|\sqrt{x^2 - 1}}
+            \end{aligned}    
+        \]
+
         \subsection{Special Case Trigonometric Functions}
 
         These integrals look really messy, but they may show up on AP exams so it's useful
@@ -1035,6 +1056,19 @@
             \end{aligned}
         \]
 
-                
+        \subsubsection{Integration by Parts - NOT EVALUATED}
+        
+        Integration by parst can be used to find the antiderivative of the product of
+        functions. It can also be reffered to as the reverse power rule, as it can be derived from 
+        rearranging the product rule.
+
+        \[
+            \int f(x)g^{\prime}(x)dx = f(x)g(x) - \int f^{\prime}(x)g(x)dx    
+        \]
+
+        For integration by parts to be most useful, $f(x)$ should be a function that is easy to take
+        the derivative of, and $g(x)$ should be a function that is easy to take the antiderivative of.
+
+        \noindent For example, find the indefinite integral
 
 \end{document}

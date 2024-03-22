@@ -13,6 +13,7 @@
 \usepackage{fancyhdr}
 \usepackage{chemfig}
 \usepackage[version=4]{mhchem}
+\usepackage{chemformula}
 
 \hypersetup {
     linkcolor=black
@@ -68,7 +69,7 @@
     Reactants of the reaction will be the hydrocarbon and $\ce{O_{2\text{(g)}}}$ with the products
     of a complete combustion being $\ce{CO_{2\text{(g)}} + H2O_{\text{(g)}}}$
 
-    \subsubsection{Alkane Reactions - Substitution Reaction}
+    \subsubsection{Substitution Reaction}
 
     During a substitution replaced a $\ce{H}$ atom with a halogen to make
     an alkyl halide. This reaction only occurs with three halogen gases $\ce{F2}$, 
@@ -107,7 +108,7 @@
         \item Glycerol - Used to make fats in the body. (propan-1,2,3-ol)
     \end{itemize}
 
-    \subsection{Naming Alcohols}
+    \subsubsection{Naming Alcohols}
 
     When naming alcohol, the following rules need to be followed in this exact order:
 
@@ -138,8 +139,6 @@
         \[
             \chemfig{CH3-CH2-CH2(-[6]OH)-CH2-CH3}    
         \]
-
-        \item 
 
     \end{itemize}
 
@@ -223,10 +222,15 @@
 
     \end{itemize}
 
-    \subsection{Naming Ethers}
+    \subsubsection{Naming Ethers}
     
     When naming ethers you need to follow a set or rules are you do alcohols and other substances, 
-    although, keep in mind that ethers are made up of two parts. The rules are as follows
+    although, keep in mind that ethers are made up of two parts. The rules are as follows:
+
+    \begin{enumerate}
+        \item Name the smallest alkyl group first, drop -yl and add oxy. This will be named as a side chain
+        \item End the longest alkyl group last named as an alkane. This is the parent chain
+    \end{enumerate}
 
     \begin{enumerate}
         
@@ -248,7 +252,15 @@
     of the reaction.
 
     % WRITE OUT THE propene + H2O reaction here, product will be propan-2-ol
-    \chemfig{\ce{H2O}(=[:330])}
+    \begin{center}
+        \schemestart
+        \chemfig{\ce{H2C}(=[:330]CH(-[:30]CH3))}
+        \+
+        \ch{H-OH}
+        \arrow(.mid east--.mid west){->[\ch{H2SO4}]}
+        \chemfig{CH(-[:150]\ch{H3C})(-[6]HO)(-[:30]\ch{CH3})}
+        \schemestop
+    \end{center}
 
     
     \subsubsection{Subsitution Reaction}
@@ -257,19 +269,32 @@
     There are no reaction conditions required in this reaction, below is an example with cholocyclohexane and water
 
     \begin{center}
-            \chemfig{
-            *6(----(-[2]Cl)--) + \ce{H2O ->}   
-        }
+        \schemestart
+        \chemfig{*6(----(-[2]Cl)--)}
+        \+
+        \ch{H-OH}
+        \arrow(.mid east--.mid west){->}
+        \chemfig{*6(----(-[2]OH)--)}
+        \+
+        \ch{HCl}
+        \schemestop
     \end{center}
 
     We can also perform a substituion between an alcohol and a hydrogen halide to produce 
-    an alkyl halide an water. Below is an example of 3-methylbutan-1-ol and hydrogen iodide.
+    an alkyl halide and water. Below is an example of 3-methylbutan-1-ol and hydrogen iodide.
 
-    \begin{center}
-        \chemfig{
-            \ce{H2C}(-[2]OH)(-[:320]\ce{C2H}(-[:40]CH(-[2]\ce{CH3})(-[:320]\ce{CH3}))) + \ce{H-I}
-        }
-    \end{center}
+    % \begin{center}
+    %     \schemestart
+    %     \chemfig{HC(-[:240]\ch{CH2}(-[:150]\ch{H2C}(-[2]OH)))(-[:330]\ch{CH3})(-[2]\ch{CH3})}
+    %     \+
+    %     \ch{H-I}
+    %     \arrow(.mid east--.mid west){->} 
+    %     \chemfig{CH(-[2]\ch{CH3})(-[:330]\ch{CH3})(-[:210]\ch{CH2}(-[:150]\ch{H2C}(-[2]I)))}
+    %     \schemestop
+    % \end{center}
+
+    \chemfig{CH(-[2]\ch{CH3})(-[:330]\ch{CH3})(-[:210]\ch{CH2}(-[:150]\ch{H2C}(-[2]I)))}
+
 
     \subsubsection{Combustion of Alcohols}
 
@@ -286,11 +311,16 @@
     as a reverse hydration reaction. Similarly to its counterpart, it also required a strong acid
     which yet again will be $\ce{H2SO4}$. An example is shown below:
 
-    % \begin{center}
-    %     \chemfig{
-    %         \ce{CH(-[:330]\ce{CH3})(-[:210]\ce{H3C})(-[2]OH) ->[\ce{H2SO4}]}
-    %     }
-    % \end{center}
+    \begin{center}
+        \schemestart
+        \chemfig{CH(-[2]\ch{OH})(-[:330]\ch{CH3})(-[:210]\ch{H3C})}
+        \+
+        \arrow(.mid east--.mid west){->[\ch{H2SO4}]}
+        \chemfig{CH(-[:210]\ch{H2C})(-[:330]\ch{CH3})}
+        \+
+        \ch{H2O}
+        \schemestop
+    \end{center}
 
     \subsubsection{Condensation Reaction}
 
@@ -299,8 +329,79 @@
     a $\ce{OH-}$. This reaction also required both a strong acid ($\ce{H2SO4}$) as well as extreme 
     heat. 
 
+    \schemestart
+    \chemfig{\ch{CH3CH3CH2}}
+    \+
+    \chemfig{\ch{CH3CH3CH2}}
+    \arrow(.mid east--.mid west){->[\ch{H2SO4}]}
+    \chemfig{}
+    \schemestop
+
+    \subsection{Carbonyl Group}
+
+    Aldehydes and ketones both contain the carbonyl group. A carbonyl 
+    group is a carbon atom double-bonded to an oxygen atom.
+
+    \subsection{Aldehydes}
+
+    In an aldehyde the carbonyl group is bonded to at least $1$ hydrogen atom (it is 
+    at the end of a \ch{C} chain). The simplest two aldehydes are methanal (commonly refferd to 
+    as formaldehyde) and ethanal. 
+
+    \subsubsection{Nomenclature of Aldehydes}
+
+    Below is how tou name aldehydes:
+
+    \begin{enumerate}
+        \item Find the longest chain with the carbonyl group
+        \item Drop the -e ending and add -al
+        \item When numbering the carbons on the parent chain, the 
+              carbonyl group has priority
+    \end{enumerate}
+
+    \subsection{Properties of Aldehydes and Ketones}
+
+    The carbonyl group is polar. The molecules will have dipole-dipole attraction but there will be no 
+    hydrigen bonding. Their boiling points are higher than similar alkanes due to alkanes only having LDFs
+    compared to the aldehydes and ketones DP-DP. Although, they have lower boiling points than similar 
+    alcohols due to alcohols having hydrogen bonding. 
+    
+    Small aldehydes and ketones are also soluble in water,  but the solubility decreases as additional carbons 
+    are added to the chain. This is because as the chain grows larger is becomes less and less polar. 
+
+    \subsection{Reaction of Aldehydes and Ketones}
+
+    These reactions are prepared y the controlled oxidation of an alcohol. It involves the gaining of an oxygen. 
+    The reaction needs an oxidizing agent like \ch{K2Cr2)7}, \ch{H2O2}, or \ch{KMnO4}. The symbol for an 
+    oxidization reaction is \ch{[O]} with the product of said reaction being and aldehyde/ketone + water.
+
     \begin{center}
-        $\ce{CH3CH2OH + CH3CH2OH ->[\ce{H2SO4}][140^{\circ}\text{C}]}$ \chemfig{H_3C-[:90]CH_2(-[:40]O-CH_2-CH_3)} + $\ce{H - OH}$
+        \schemestart
+        \chemfig{C(-[:180]R)(-[:90]H)(-[:270]H)(-[:0]O(-[:0]H))}
+        \arrow(.mid east--.mid west){->[\ch{[O]}]}
+        \chemfig{C(-[:210]R)(=[2]O)(-[:330]H)}
+        \+
+        \ch{H2O}
+    \schemestop
     \end{center}
+
+    \subsubsection{$1^{\circ}$ vs $2^{\circ}$ vs $3^{\circ}$ alcohol}
+
+    A primary alcohol in an oxidization reaction results in an aldehyde with water while a 
+    secondary alcohol results in a ketone with water. Tertiary alcohols on the other hand 
+    don't oxidize
+
+    The reason that tertiary alcohols do not oxidize because for this reaction to occur
+    a hydrogen need to be removed to make space for the new oxygen double bond. The tertiary
+    alcohol can't do this as its bonded to other carbons and there are no hydrogen to remove.
+
+    \subsubsection{Hydrogenation of Aledhydes and Ketones}
+
+    This reaction occurs under conditions of high temperature and pressure, and a \ch{Pt} 
+    catalyst. The reactants are hydrogen + ketone/aldehyde with its product being an 
+    alcohol. Is a reverse-oxidization of alcohols where aldehydes become primary alcohols
+    and ketones become secondary alcohols. 
+
+    
 
 \end{document}
