@@ -14,6 +14,8 @@
 \usepackage{amssymb}
 \usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{pfgplots}
+\usepackage{tikz}
 
 \pagestyle{fancy}
 
@@ -1041,8 +1043,7 @@
                 \frac{d}{dx}u &= \frac{d}{dx}x^2\\
                 \frac{du}{dx} &= 2x \\
                 du &= 2x\space dx
-            \end{alig
-            ned}
+            \end{aligned}
         \]
 
         \noindent Return to the original function, make sure $du$ is offset so that it 
@@ -1070,6 +1071,104 @@
         For integration by parts to be most useful, $f(x)$ should be a function that is easy to take
         the derivative of, and $g(x)$ should be a function that is easy to take the antiderivative of.
 
-        \noindent For example, find the indefinite integral
+        \section{Differential Equations}
+
+        Differential equations involve functions and their derivatives. Unlike algebraic equations
+        who evaluate to numbers or values, differential equations evaluate to a function or class 
+        (several) functions
+
+        \subsection{Modelling Differential Equations}
+
+        When interpreting words to turn into differential equations, there are a few
+        key-words that should be looked for
+
+        \begin{itemize}
+            
+            \item \textbf{Proportional} Means that the rate of change is equal to some constant
+                  $k$ multiplied by what the rate of change is proportional
+
+            \[
+                \frac{dy}{dx} = ak
+            \]
+
+            \item \textbf{Inversely Proportional} Means that the rate of change is equal to some 
+                 constant $k$ divided by what the rate of change is inversely proprtional to
+            
+            \[
+                \frac{dy}{dx} = \frac{k}{a}    
+            \]
+
+            \item \textbf{Shrinks, decays, melts, decreases, etc}: any word that suggests something is 
+                  getting smaller, the rate of change is equal to some constant $k$ multiplied by what
+                  the rate of change is proprotional to, but negative
+
+                  \[
+                    \frac{dQ}{dt} = -kQ  
+                  \]
+
+            \item \textbf{Fraction of ...}: usually means that the rate of change is equal to some 
+                  constant $k$ multiplied by one minus what the rate of change is proportional to
+
+                  \[
+                        \frac{da}{dt} = ka(1 - a)  
+                  \]
+
+        \end{itemize}
+
+        \subsection{Slope Fields}
+
+        Slope fields are a way to verify a class of answers to differential equations that 
+        are solved explicitly. When the equations are not solvable explicitly, slope fields are a 
+        way to solve graphically. Slope fields show the slop of a differential equation at each point
+
+        \pgfplotsset{ % Define a common style, so we don't repeat ourselves
+            MaoYiyi/.style={
+                width=0.6\textwidth, % Overall width of the plot
+                axis equal image, % Unit vectors for both axes have the same length
+                view={0}{90}, % We need to use "3D" plots, but we set the view so we look at them from straight up
+                xmin=0, xmax=1.1, % Axis limits
+                ymin=0, ymax=1.1,
+                domain=0:1, y domain=0:1, % Domain over which to evaluate the functions
+                xtick={0,0.5,1}, ytick={0,0.5,1}, % Tick marks
+                samples=11, % How many arrows?
+                cycle list={    % Plot styles
+                        gray,
+                        quiver={
+                            u={1}, v={f(x)}, % End points of the arrows
+                            scale arrows=0.075,
+                            every arrow/.append style={
+                                -latex % Arrow tip
+                            },
+                        }\\
+                        red, samples=31, smooth, thick, no markers, domain=0:1.1\\ % The plot style for the function
+                }
+            }
+        }
+
+        \begin{document}
+        \begin{tikzpicture}[
+            declare function={f(\x) = 2*\x;} % Define which function we're using
+        ]
+            \begin{axis}[
+                MaoYiyi, title={$\dfrac{\mathrm{d}y}{\mathrm{d}x}=2x$}
+            ]
+                \addplot3 (x,y,0);
+                \addplot {x^2+0.15}; % You need to find the antiderivative yourself, unfortunately. Good exercise!
+                \end{axis}
+                \end{tikzpicture}
+                %
+                \begin{tikzpicture}[
+                    declare function={f(\x) = \x*sqrt(\x);}
+                ]
+                \begin{axis}[
+                    MaoYiyi,
+                    title={$\dfrac{\mathrm{d}y}{\mathrm{d}x}=x\sqrt{x}$},
+                    ytick=\empty
+                ]
+                \addplot3 (x,y,0);
+                \addplot +[domain=0.001:1.1] {x^(2.5)/2.5+0.15};
+            \end{axis}
+        \end{tikzpicture}
+
 
 \end{document}
