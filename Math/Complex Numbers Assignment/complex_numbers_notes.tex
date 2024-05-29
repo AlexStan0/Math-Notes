@@ -1,0 +1,314 @@
+\documentclass[12pt]{article}
+
+% Import dependencies
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[margin=1.2in]{geometry} % margins
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=cyan]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+
+\pagestyle{fancy}
+
+\fancyhead[L]{\bf\large AP Calc - Complex Numbers}
+\fancyhead[R]{\bf\large Sem. 2}
+\setlength{\headheight}{35pt}
+
+\newcommand{\C}{{\mathbb{C}}} 
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+\renewcommand{\baselinestretch}{1.5}
+\newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
+\newcommand{\uit}[1]{\textit{#1}}
+\setlength{\parskip}{1em}
+\setlength{\jot}{1em}
+\addto\captionsenglish{\renewcommand{\contentsname}{Concepts}}
+
+\hypersetup {
+    linkcolor=black
+}
+
+% Create title
+\title{
+    \textbf{Complex Numbers:\\ Concepts, Formulas, etc.}
+    \author{Alexandru Stan}
+    \date{May 2024}
+}
+
+\begin{document}
+
+    \maketitle
+    \vfill
+    \newpage
+
+    \tableofcontents
+    \fline
+    \newpage
+
+    \section{Preface}
+
+    These notes are written as an assignment for AP Calculus AB and are meant to be used by myself as a tool 
+    in any future university level mathematics class. If you are finding (or have received) these notes 
+    and are wishing to learn/study from them; be aware that they are tailored to myself and may not 
+    cover all concepts needed to properly learn/study complex numbers
+
+    \section{Definition and Basics}
+
+    To begin, a complex number is one where an ``imaginary'' part is present, 
+    which will be defined as $i$ where $i=\sqrt{-1}$ moving onwards. 
+
+    The imaginary part is in quotations as $i$ is not ``imaginary'' but instead
+    on a different plane comapred to our traditional number line. They are 
+    better refered to as lateral numbers but they will be referred to as 
+    ``imaginary'' numbers to better reflect modern mathematical vocabulary
+
+    \subsection{Parts of a Complex Number}
+
+    % A complex number is defined as a number made up of a combination
+    % of a real and imaginary part. 
+
+    % \[
+    %     z = a + bi    
+    % \]
+
+    % where $a$ and $b$ are both real numbers
+
+    A complex number $z$ can be defined by that addition of a real part $a$ and imaginary part
+    $bi$ such that $z = a + bi$ where $a, b\in\R$. 
+
+    I'll cover this in the next subsection, but it is important to note that $0$ is also 
+    a real number and that real numbers can also be written in complex form. 
+
+
+    \subsection{Set Notation}
+
+
+    Given $z$ where $z = a + bi$ such that $a, b \in\R$; $z$ can be said to be in the set of
+    complex numbers $\C$ where $\C = \{a + bi \mid a, b\in\R, i^2 = -1\}$. This can also be written
+    as $z\in\C$. 
+
+    It is also important to note that all reals $\R$ are a subset of $\C$. This is inherently 
+    true as any real number $x$ can be written as a complex number $a + bi$ where $b = 0$. 
+
+    \section{Arithmetic Operations}
+
+    All complex numbers abide by their respective arithemtic rules in such a way 
+    where any arithmetic performed on a complex number returns another complex number 
+    as shown below
+
+    \begin{itemize}
+        
+        \item \bf Addition 
+            $(a + bi) + (c + di) = (a + c) + i(b + d)$
+        \item \bf Substraction 
+            $(a + bi) - (c + di) = (a - c) + i(b - d)$
+        \item \bf Multiplication
+            $(a + bi)(c + di) = (ac - bd) + i(ad + bc)$
+        \item \bf Division
+            $\frac{a + bi}{(c + di)} = \frac{(ac + bd)}{c^2 + d^2} + \frac{i(bc - ad)}{c^2 + d^2}$
+
+    \end{itemize}
+
+    \section{Graphical Representation}
+
+    Although often imagined only in an algebraic context, imaginary numbers can also be visually represented 
+    in what can be understood as a modified cartesian plane. 
+
+    \subsection{Complex Plane \& Point Representation}
+
+    Given a complex number $z: z=x+yi$, the y-axis on the complex plane illustrates
+    the imaginary component whilst the x-axis (also referred to as the number line) 
+    represents the real component. 
+
+    Below is a representation of the complex number $4 + 5i$ in point representation, i.e, 
+    the real coefficients are treated as coordinates $(x, y)$ on the complex plane. 
+
+    \begin{center}
+        
+        \begin{tikzpicture}
+            % Draw axes
+            \draw[->] (-1,0) -- (6,0) node[right] {Re};
+            \draw[->] (0,-1) -- (0,5) node[above] {Im};
+        
+            % Draw grid lines
+            \draw[dashed, gray] (5, 0) -- (5, 4);
+            \draw[dashed, gray] (0, 4) -- (5, 4);
+        
+            % Label points
+            \foreach \x in {1, 2, 3, 4, 5}
+                \draw (\x, 0.1) -- (\x, -0.1) node[below] {\x};
+        
+            \foreach \y in {1, 2, 3, 4}
+                \draw (0.1, \y) -- (-0.1, \y) node[left] {\y};
+        
+            % Draw and label the point (5, 4)
+            \filldraw[black] (5, 4) circle (2pt) node[above right] {$5 + 4i$};
+
+        \end{tikzpicture}
+
+    \end{center}
+
+    \subsection{Magnitude and Angle}
+
+    Given a complex number $z$ such that $z = a + bi$ the magnitude of
+    the complex number can be found by square rooting the sum of the squares
+    of the number's real parts, i.e
+
+    \[
+        |z| = \sqrt{a^2 + b^2}    
+    \]
+
+    To find the angle of a complex number, arctangent can not be used due to the fact that if $\tan z = i$ and $\sin z = i\cos z$, 
+    
+    \[
+        \begin{aligned}
+            & \sin^2 z + \cos^2 z\\
+            &= (i\cos z)^2 + \cos^2 z \\
+            &= i^2\cos^2 z + \cos^2 z \\
+            &= -\cos^2 z + \cos^2 z\\
+            &= 0   
+        \end{aligned}    
+    \]
+
+    but, $\sin^2 z + \cos^2 z = 1$ therefore there exists no solution to $\tan z = \pm i$. So instead
+    the angle is findable using the real terms in the number such that 
+
+    \[
+        \tan\theta = \frac{b}{a}   
+    \]
+
+    \subsection{Vectors}
+
+    Complex numbers are not identical to $\R^2$ but in some ways they 
+    exhibit similar behaviours to each other. There are also similarities between complex
+    number and two dimensional matrices. 
+
+    There are two things you can do with a pair of complex numbers. You can add (or substract)
+    and you can multiply (or divide) them. Thinking about addition and substraction, supposed 
+    you map each complex number to a two dimensional vector as follow $a + bi \mapsto (a, b)$
+
+    Then in term of complex numbers $(a + bi) + (c + di) = (a + c) + i(b + d)$ and in terms of vectors
+    $(a, b) + (c, b) = (a + c, b + d)$ it can be observed that $(a + ib) + (c + ib) \mapsto (a, b) + (c, d)$   
+    
+    \newpage
+
+    Now, thinking about multiplication and division, when we multiply a complex number by $i$ we
+    get $i(c + id) = -d + ic$. 
+    
+    In the vector space you start with the vector $(c, d)$ and end up with a 
+    vector $(-d, c)$. The vector has been rotated anticlockwise by $90^{\circ}$, representable via 
+    the last matrice below
+    
+    \[
+        \begin{pmatrix}
+            0 & -1 \\
+            1 & 0 \\
+        \end{pmatrix}    
+    \]
+
+    We can now come up with a mapping from complex numbers to two dimensional matrices such that
+
+    \[
+        a + ib \mapsto \begin{pmatrix}
+            a & -b \\
+            b & a
+        \end{pmatrix}
+    \]
+
+    That gives us $(a + ib)(c + id) = (ac - bd) + i(ad + bc)$ and
+
+    \[
+        \begin{pmatrix}
+            a & -b\\
+            b & a \\
+        \end{pmatrix}
+        \begin{pmatrix}
+            c & -d \\
+            d & c \\
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            ac-bd & -ad-bc\\
+            ad + bc & ac -bd 
+        \end{pmatrix}
+    \]
+
+    therefore
+
+    \[
+        (a + ib)(c + ib) \mapsto \begin{pmatrix}
+            a & -b \\
+            b & a
+        \end{pmatrix}  
+        \begin{pmatrix}
+            c & -d \\
+            d & c
+        \end{pmatrix}
+    \]
+
+    We have found that the addition/substraction and multplication/division of 
+    complex numbers and $\R^2$ vectors are isomorphic, i.e, similar in terms of 
+    properties to one another. 
+
+    \section{Complex Conjugate}
+    \subsection{Definition}
+    \subsection{Properties}
+
+    \section{Magnitude (Modulus)}
+    \subsection{Formula}
+    \subsection{Properties}
+
+    \section{Argument (Phase)}
+    \subsection{Definition}
+    \subsection{Principal Value}
+    \subsection{Argument Function}
+    \subsection{Properties}
+
+    \section{Polar Form}
+    \subsection{Conversion}
+    \subsection{Formula}
+    \subsection{Euler's Formula}
+    \subsection{Inverse Conversion}
+
+    \section{De Moivre's Theorem}
+    \subsection{Definition}
+    \subsection{Application}
+
+    \section{Roots of Complex Numbers}
+    \subsection{nth Roots}
+    
+    \section{Exponential Form and Logarithms}
+    \subsection{Exponential Form}
+    \subsection{Euler's Formula (with Logarithms)}
+    \subsection{Logarithm}
+    \subsection{Principal Value (with Logarithms)}
+
+    \section{Functions of Complex Variables}
+    \subsection{Exponential Function}
+    \subsection{Trigonometric Functions}
+    \subsection{Hyperbolic Functions}
+
+    \section{Advanced Concepts}
+    \subsection{Analytic Functions}
+    \subsection{Cauchy-Riemann Equations}
+    \subsection{Complex Integration}
+    \subsection{Laplace Transform}
+
+
+
+\end{document}
