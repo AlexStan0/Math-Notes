@@ -32,6 +32,7 @@
 \DeclareMathOperator{\arcsec}{arcsec}
 \DeclareMathOperator{\arccot}{arccot}
 \DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arctantwo}{arctan2}
 
 \renewcommand{\baselinestretch}{1.5}
 \newcommand{\fline}{\par\noindent\rule{\textwidth}{0.1pt}}
@@ -164,49 +165,18 @@
 
     \end{center}
 
-    \subsection{Magnitude and Angle}
-
-    Given a complex number $z$ such that $z = a + bi$ the magnitude of
-    the complex number can be found by square rooting the sum of the squares
-    of the number's real parts, i.e
-
-    \[
-        |z| = \sqrt{a^2 + b^2}    
-    \]
-
-    To find the angle of a complex number, arctangent can not be used due to the fact that if $\tan z = i$ and $\sin z = i\cos z$, 
-    
-    \[
-        \begin{aligned}
-            & \sin^2 z + \cos^2 z\\
-            &= (i\cos z)^2 + \cos^2 z \\
-            &= i^2\cos^2 z + \cos^2 z \\
-            &= -\cos^2 z + \cos^2 z\\
-            &= 0   
-        \end{aligned}    
-    \]
-
-    but, $\sin^2 z + \cos^2 z = 1$ therefore there exists no solution to $\tan z = \pm i$. So instead
-    the angle is findable using the real terms in the number such that 
-
-    \[
-        \tan\theta = \frac{b}{a}   
-    \]
-
     \subsection{Vectors}
 
-    Complex numbers are not identical to $\R^2$ but in some ways they 
+    Complex numbers are not identical to $\R^2$ vectors but in some ways they 
     exhibit similar behaviours to each other. There are also similarities between complex
-    number and two dimensional matrices. 
+    numbers and two dimensional matrices. 
 
     There are two things you can do with a pair of complex numbers. You can add (or substract)
-    and you can multiply (or divide) them. Thinking about addition and substraction, supposed 
-    you map each complex number to a two dimensional vector as follow $a + bi \mapsto (a, b)$
+    and you can multiply (or divide) them. Thinking about addition and substraction, suppose 
+    you map each complex number to a two dimensional vector as follows $a + bi \mapsto (a, b)$
 
     Then in term of complex numbers $(a + bi) + (c + di) = (a + c) + i(b + d)$ and in terms of vectors
     $(a, b) + (c, b) = (a + c, b + d)$ it can be observed that $(a + ib) + (c + ib) \mapsto (a, b) + (c, d)$   
-    
-    \newpage
 
     Now, thinking about multiplication and division, when we multiply a complex number by $i$ we
     get $i(c + id) = -d + ic$. 
@@ -267,23 +237,102 @@
 
     \section{Complex Conjugate}
     \subsection{Definition}
-    \subsection{Properties}
 
-    \section{Magnitude (Modulus)}
-    \subsection{Formula}
-    \subsection{Properties}
+    A complex conjugate is one where, given a complex number $z: z = a + bi$ the sign 
+    of the imaginary component is flipped. This action returns a complex number with a 
+    structure of $a - bi$. The complex conjugate is often noted as $\bar{z}$
 
-    \section{Argument (Phase)}
+    \subsection{Properties}
+        
+    The following properties apply for all complex numbers $z$ and $w$ unless stated otherwise, and \
+    can be proved by writing $z$ and $w$ in the form $a + bi$
+
+    For any two complex numbers, conjugation is distributive over addition, substraction, multiplication, and division
+
+    \[
+        \begin{aligned}
+            \overline{z + w} &= \overline{z} + \overline{w}\\
+            \overline{z - w} &= \overline{z} - \overline{w}\\
+            \overline{zw} &= \overline{z}\overline{w}\\
+            \overline{\left(\frac{z}{w}\right)} &= \frac{\overline{z}}{\overline{w}}, \space\text{if} \space\ne0
+        \end{aligned}    
+    \]
+
+    A complex number is equal to its complex conjugate if its imaginary part, $b$, is equal to $0$. In other words, real numbers
+    are the only fixed points of conjugation
+    Conjugation does not change the modulus of a complex nmumber: $|\overline{z}| = |z|$. Conjugation is also an involution, that is, 
+    the conjugate of the conjugate of a complex number $z$ is $z$, also written as $\overline{\overline{z}} = z$
+
+    \section{Modulus}
+
+    Given a complex number $z$ such that $z = a + bi$ the modulues (also known as the magnitude) of
+    the complex number can be found by square rooting the sum of the squares
+    of the number's real parts, i.e
+
+    \[
+        |z| = \sqrt{a^2 + b^2}    
+    \]
+
+    The modulus is often written as $r$ where $r = |z|$
+
+    \section{Argument}
+
     \subsection{Definition}
-    \subsection{Principal Value}
-    \subsection{Argument Function}
-    \subsection{Properties}
+
+    For a complex number $z = a + bi$ where $a, b \in\R$ the argument $\theta$ is the angle formed between
+    the positive real axis (defined as $1 + 0i$) and the line representing the complex number $z$. 
+    
+    \subsection{Mathematical Expression}
+
+    The argument can be found using the arctangent function such that $\theta = \arctan\left(\frac{b}{a}\right)$
+
+    However, since arctangent alone only returns results in the range $(-\frac{\pi}{2}, \frac{\pi}{2})$, adjustements 
+    are needed to place $\theta$ correctly in all four quadrants. This leads to the use of the $\arctantwo(b, a)$ function,
+    which returns the angle in the correct quadrant
+
+    \subsection{Range of Values}
+
+    The argument $\theta$ can theoretically take on a real value, but it is often restricted to a principal value 
+    to ensure that it is unique. The principal value of the argument is typically within the interval $-\pi < \theta\le\pi$
+    
+    Note that, $Arg(z)$ restricts the angle in the above interval while $\arg(z)$ does not and can be defined as 
+    $\arg(z) = \{Arg(z) + 2\pi n \mid n \in\N\}$ where $Arg(z) = \arctantwo(z)$
+
+    \subsection{Principal Argument}
+
+    The principle argument, denoted $Arg(z)$, is the unique value of the argument within the specified interval 
+    $Arg(z) = arg(z) \mod 2\pi$ with $-\pi < Arg(z)\le\pi$
 
     \section{Polar Form}
+
+    The polar form of a complex number is a different way to represent a plex number apart from the 
+    traditional rectangular form. Usually a complex numer is represented in the form $a + bi$, but in 
+    polar form, it is representated as a combination of the modulus (magnitude) and argument.
+
     \subsection{Conversion}
+
+    Converting a complex number from rectangular form to polar form involved finding the modulus and the argument. 
+    Polar form is represented as $z = r(\cos\theta + i\sin\theta)$ or more commonly as $z = re^{i\theta}$. Below are 
+    steps to follow to perform the Conversion
+    
+    \begin{enumerate}
+        
+        \item Calculate the modulus
+        
+        \[
+            r = \sqrt{a^2 + b^2}    
+        \]
+
+        \item Calculate the argument
+        
+        
+
+    \end{enumerate}
+
     \subsection{Formula}
     \subsection{Euler's Formula}
     \subsection{Inverse Conversion}
+    \subsection{Properties}
 
     \section{De Moivre's Theorem}
     \subsection{Definition}
