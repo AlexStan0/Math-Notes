@@ -1,0 +1,284 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumerate,nicefrac,fancyhdr,hyperref,graphicx,adjustbox}
+\hypersetup{colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue}
+\usepackage[left=2.6cm, right=2.6cm, top=1.5cm, includehead, includefoot]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[d]{esvect}
+
+%% commands
+%% useful macros [add to them as needed]
+% sets
+\newcommand{\C}{{\mathbb{C}}} 
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\Q}{{\mathbb{Q}}}
+\newcommand{\R}{{\mathbb{R}}}
+\newcommand{\Z}{{\mathbb{Z}}}
+\newcommand{\F}{{\mathbb{F}}}
+
+% bases
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mM}{\mathcal{M}}
+\newcommand{\mO}{\mathcal{O}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mS}{\mathcal{S}}
+\newcommand{\mT}{\mathcal{T}}
+
+% linear algebra
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\adj}{\operatorname{adj}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\spn}{\operatorname{Span}}
+\newcommand{\proj}{\operatorname{proj}}
+\newcommand{\prp}{\operatorname{perp}}
+\newcommand{\refl}{\operatorname{refl}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\nul}{\operatorname{Null}}
+\newcommand{\nully}{\operatorname{nullity}}
+\newcommand{\range}{\operatorname{Range}}
+\renewcommand{\ker}{\operatorname{Ker}}
+\newcommand{\col}{\operatorname{Col}}
+\newcommand{\row}{\operatorname{Row}}
+\newcommand{\cof}{\operatorname{cof}}
+\newcommand{\Num}{\operatorname{Num}}
+\newcommand{\Id}{\operatorname{Id}}
+\newcommand{\ipb}{\langle \thinspace, \rangle}
+\newcommand{\ip}[2]{\left\langle #1, #2\right\rangle} % inner products
+\newcommand{\M}[2]{M_{#1\times #2}(\F)}
+\newcommand{\RREF}{\operatorname{RREF}}
+\newcommand{\cv}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+\newenvironment{amatrix}[1]{\left[\begin{array}{@{}*{\numexpr#1-1}{c}|c@{}}}{\end{array}\right]}
+\newcommand{\am}[2]{\begin{amatrix}{#1} #2 \end{amatrix}}
+
+% vectors
+\newcommand{\vzero}{\vv{0}}
+\newcommand{\va}{\vv{a}}
+\newcommand{\vb}{\vv{b}}
+\newcommand{\vc}{\vv{c}}
+\newcommand{\vd}{\vv{d}}
+\newcommand{\ve}{\vv{e}}
+\newcommand{\vf}{\vv{f}}
+\newcommand{\vg}{\vv{g}}
+\newcommand{\vh}{\vv{h}}
+\newcommand{\vl}{\vv{\ell}}
+\newcommand{\vm}{\vv{m}}
+\newcommand{\vn}{\vv{n}}
+\newcommand{\vp}{\vv{p}}
+\newcommand{\vq}{\vv{q}}
+\newcommand{\vr}{\vv{r}}
+\newcommand{\vs}{\vv{s}}
+\newcommand{\vt}{\vv{t}}
+\newcommand{\vu}{\vv{u}}
+\newcommand{\vvv}{{\vv{v}}}
+\newcommand{\vw}{\vv{w}}
+\newcommand{\vx}{\vv{x}}
+\newcommand{\vy}{\vv{y}}
+\newcommand{\vz}{\vv{z}}
+
+% display
+\newcommand{\ds}{\displaystyle}
+\newcommand{\qand}{\quad\text{and}}
+\newcommand{\qandq}{\quad\text{and}\quad}
+\newcommand{\hint}{\textbf{Hint: }}
+
+% misc
+\newcommand{\area}{\operatorname{area}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\rc}{\red{\checkmark}}
+
+%% header
+\pagestyle{fancy}
+\fancyhead[L]{\bf\large AP Calc AB \\ Presentation Question Solutions}
+\fancyhead[R]{\bf\large Spring 2024 \\}
+\setlength{\headheight}{35pt}
+
+\begin{document}
+
+	\begin{enumerate}[{\bf S1.}] 
+
+        \item $(\Z, +)$ - The integers under addition is a group, here is how it satisfies the axioms of a group
+        
+            \begin{enumerate}
+                
+                \item
+                
+                    Given any two integers $x, y\in\Z$, their sum, $x + y$ is bound to be within
+                    the set of integers. Therefore the set $\Z$ is clsoed under addition
+
+                \item 
+
+                    $0$ is the identity element, as, given $e = 0$, $x + e = e + x = x$ where $e = 0$ holds true. 
+
+                \item 
+
+                    For every $x\in\Z$ there exists $y\in\Z$ such that $x + y = y + x = 0$. In this specific instance
+                    $y = -x$. Therefore, each element in the set has an inverse within the set. 
+
+                \item 
+
+                    Given any $x, y, z\in\Z$. The assoicative statement $x + (y + z) = z + (x + y)$ holds true.
+
+            \end{enumerate}
+
+            Therefore, as all of the axioms of a group are met, $(\Z, +)$, the set of integers 
+            under addition, is a group. \\
+
+        \item $(\Q, \times)$ - The rations under multiplication, is this a Group?
+        
+            \begin{enumerate}
+                
+                \item 
+
+                    Given any two $x, y\in\Q$, the product of their multiplication $x\times y$ will always result in a 
+                    rational number. Therefore, the set $\Q$ is closed under multiplication
+
+                \item 
+
+                    The identity element of $\Q$ under multiplication is $1$ as, for all $x\in\Q$, where $e = 1$, the 
+                    identity $x\times e = e\times x = x$ holds true. 
+
+                \item 
+
+                    Multiplication is associative, same as addition, therefore, for any $x, y, z\in\Q$, the equation
+                    $x\times(y\times z) = z\times(x\times y)$ is true.
+
+                \item 
+
+                    Now, $(\Q, \times)$ fails to meet the criteria of a group when it comes to inverses. For an element $x\in\Q$
+                    to have an inverse under multiplication there must exist $y\in\Q$ such that $x\times y = y\times x = 1$. \\
+
+                    As the set of rational integers $\Q$ includes the element $0$, which does not have an inverse, it means 
+                    that the inverse axiom, stating that each element in the set must have an inverse such that $x\times y = y\times x = 1$
+                    is not met. Therefore, $\Q$ is not a group under multiplication
+
+            \end{enumerate}
+
+        \newpage
+
+        \item $(\Q, +, \times)$ is the ring of rationals closed under addition and multiplication, how does it satisfy the axioms of a ring?
+        
+            \begin{enumerate}
+                
+                \item 
+
+                    It is a group under addition, meaning
+
+                    \begin{itemize}
+                        \item \textbf{Closure:} For all $x, y\in\Q$, $x + y \in\Q$ holds true
+                        \item \textbf{Identity:} For any $x\in\Q$ given $e = 0$, $x + e = e + x = x$ holds true
+                        \item \textbf{Inverse:} For any $x\in\Q$ there exists $y\in\Q$ such that $y = -x$ and $x + y = y + x = e$ where $e = 0$
+                        \item \textbf{Associativity: } As addition is associative, for all $x, y, z\in\Q$, the equation \\
+                        $x + (y + z) = z + (x + y)$ holds true
+                    \end{itemize}
+
+                \item 
+
+                    When it comes to the associativity of $\times$, for every $x, y, z\in\Q$, $x\times(y\times z) = z\times(x\times y)$ holds true.
+
+                \item 
+
+                    For the distributive properties, it is the exact same scenario. Given $x, y, z\in\Q$, the following properties
+
+                    \[
+                        x \times (y + z) = (x\times y) + (x\times z)
+                    \]
+
+                    and 
+
+                    \[
+                        (y + z) \times x = y\times x + z\times x
+                    \]
+
+                    Both hold true, meaning that the axiom of distributive properties holds true in this case. 
+
+            \end{enumerate}
+
+            Therefore, $(\Q, +, \times)$ is a ring. 
+
+        \item Using what was just learnt, decide whether $(\mathbb{O}^+, +, \times)$, the set of positive odd integers, 
+              is a ring. Why or why not?
+
+              \begin{enumerate}
+                
+                \item 
+
+                    This set under addition and multiplication is not a ring as the axiom of being a group under addition is not met, here
+                    is why:
+
+                    \begin{itemize}
+                        
+                        \item To start, for any $x, y\in\mathbb{O}^+$, their product $x + y$, will not always be in the set 
+                              of odd positive integers as, for example, $1 + 3 = 4$. Therefore, the set $\mathbb{O}^+$ is not closed under
+                              addition
+
+                        \item Given $x\in\mathbb{O}^+$ there must exist an identity element $e$ such that $x + e = e + x = x$. 
+                              Although $0$ is usually the identity element under addition, as $0\notin\mathbb{O}^+$, there is no element in the
+                              set that can satisfy this axiom.
+
+                        \item For any $x\in\mathbb{O}^+$ there must exist $y\in\mathbb{O}^+$ such that $x + y = y + x = 0$. But, as 
+                              the set $\mathbb{O}^+$ does not include any negative numbers, no elements within the set have an inverse
+                              within it. 
+
+
+                    \end{itemize}
+
+              \end{enumerate}
+
+        \newpage
+
+        \item Is the set of rational numbers $\Q$ a field?
+        
+              \begin{enumerate}
+                
+                \item As discussed in S2, $\Q$ is a valid group under addition, therefore the first axiom is satisfied.
+                
+                \item This is where it gets interesting. The second axiom to define a field states that a set without the identity set 
+                      $0$ (i.e $\Q - \{0\}$) must be a valid group under multiplication. We know that $\Q$ satisfies all of the 
+                      conditions of a group under multiplication, save for the fact that $0$ does not have inverse within the set.
+
+                      Therefore, as $0$ is no longer within the set, for any $x\in\Q$ there exists $y\in\Q$ such that $x\times y = y\times x = e$
+                      where $e = 1$                      
+
+              \end{enumerate}
+
+              Therefore, as both field axioms are obeyed, the set $\Q$ is a field. 
+
+        \item Is the set of complex numbers $\C$ a field?
+        
+        \begin{enumerate}
+            
+            \item $(\C, +)$ is a valid group 
+            
+            \begin{itemize}
+                
+                \item For all $x, y\in\C$, $x + y\in\C$ holds true
+                \item For any $x\in\C$, $x + 0 = 0 + x = x$, therefore the identity element is $0$
+                \item For all $x\in\C$, there exists $y\in\C$ such that $x + y = y + x = 0$
+                \item For all $x, y, z\in\C$, $x + (y + z) = z + (x + y)$ is true
+
+            \end{itemize}
+
+            \item $(\mathbb{S}, \times)$ is also a valid group where $\mathbb{S} = \C - \{0\}$
+            
+            \begin{itemize}
+                
+                \item For all $x, y\in\mathbb{S}$, $x\times y\in\mathbb{S}$ holds true
+                \item Given any $x\in\mathbb{S}$, $x\times 1 = 1 \times x = x$, therefore the identity element is $1$
+                \item For any $x\in\mathbb{S}$ there exists $y\in\mathbb{S}$ such that $x\times y = y\times x = e$ where $e$ is the 
+                      identity element $1$
+                \item For all $x, y, z\in\mathbb{S}$, $x\times(y\times z) = z\times (x\times y)$
+
+            \end{itemize}
+
+            Therefore, as all of the field axioms are satisfied, $\C$ is a field. 
+
+        \end{enumerate}
+
+    \end{enumerate}
+
+\end{document}
